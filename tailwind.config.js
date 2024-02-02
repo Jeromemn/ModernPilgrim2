@@ -6,6 +6,25 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
+    colors: {
+      'light-green': '#606c38',
+      'green': '#283618',
+      'tan': '#fefae0',
+      'light-brown': '#dda15e',
+      'brown': '#bc6c25',
+      'black': '#212529',
+      'plain-white': '#fff',
+    },
+    fontFamily: {
+     'salsa': ['Salsa','cursive'],
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
