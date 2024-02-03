@@ -24,14 +24,14 @@ const mockUserProfile = {
                 {
                     "id": 1,
                     "name": "Beach",
-                    "description": "Beach activities",
+                    "description": "Sunbathing and swimming in crystal clear waters",
                     "activityImage": "",
                     "hasActivityImage": false
                 },
                 {
                     "id": 2,
                     "name": "Hiking",
-                    "description": "Hiking activities",
+                    "description": "Went hiking to a stunning cove",
                     "activityImage": "",
                     "hasActivityImage": false
                 }

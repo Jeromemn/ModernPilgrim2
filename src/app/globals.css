@@ -24,6 +24,9 @@
   .navItem {
     @apply text-brown font-bold text-lg;
   }
+  .rounded-card {
+    @apply rounded-md;
+  }
 }
 
 
