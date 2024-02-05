@@ -90,7 +90,7 @@ const ProfilePage = () => {
                                     </div>
                                 </div>
                                 <button className="p-2 border rounded mt-4 bg-brown text-tan">
-                                    <Link href='/profile/singletrip'> View Details </Link>
+                                    <Link href={`/profile/${id}`}> View Details </Link>
                                 </button>
                             </div>
                         ))}

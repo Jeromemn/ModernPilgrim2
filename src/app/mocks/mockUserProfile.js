@@ -7,14 +7,14 @@ const mockUserProfile = {
     "hasProfileImage": false,
     trips : [
         {
-            "id": 1,
+            "id": '1',
             "name": "Trip to the beach",
             "description": "A trip to the beach with my friends",
             "displayDate": "August 1st - 3rd, 2020",
             "startDate": "2020-08-01",
             "endDate": "2020-08-03",
             "location": "Miami, Florida",
-            "tripImage": "",
+            "tripImages": [],
             "hasTripImage": false,
             "tripType": "Beach",
             "tripStatus": "Past",
@@ -38,14 +38,14 @@ const mockUserProfile = {
             ],
         },
         {
-          "id": 2,
+          "id": '2',
             "name": "Trip to France",
             "description": "A trip to France with my family",
             "displayDate": "August 1st - 3rd, 2022",
             "startDate": "2022-08-01",
             "endDate": "2022-08-03",
             "location": "Paris, France",
-            "tripImage": "",
+            "tripImages": [],
             "hasTripImage": false,
             "tripType": "City",
             "tripStatus": "Future",
@@ -63,6 +63,20 @@ const mockUserProfile = {
                     "id": 2,
                     "name": "Sightseeing",
                     "description": "Sightseeing activities",
+                    "activityImage": "",
+                    "hasActivityImage": false
+                },
+                {
+                    "id": 3,
+                    "name": "Museum",
+                    "description": "Museum activities",
+                    "activityImage": "",
+                    "hasActivityImage": false
+                },
+                {
+                    "id": 4,
+                    "name": "Eiffel Tower",
+                    "description": "Explore the Eiffel Tower, and go to the top for a panoramic view of Paris",
                     "activityImage": "",
                     "hasActivityImage": false
                 }
