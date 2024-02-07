@@ -13,7 +13,7 @@
     @apply px-4 py-2 rounded-md bg-light-green text-white;
   }
   .loginBtn {
-    @apply px-4 py-2 rounded-md bg-light-green text-light-brown;
+    @apply px-4 py-2 rounded-md bg-green text-light-brown;
   }
   .trip-card {
     @apply bg-plain-white rounded-md shadow-[0px_0px_6px_1px_#1a202c] w-72 h-72 place-self-center p-8;
@@ -23,6 +23,15 @@
   }
   .navItem {
     @apply text-brown font-bold text-lg;
+  }
+  .rounded-card {
+    @apply rounded-md;
+  }
+  .secondary-header {
+    @apply text-3xl font-bold;
+  }
+  .tip-container {
+    @apply  flex ;
   }
 }
 

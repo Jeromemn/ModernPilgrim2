@@ -1,3 +1,11 @@
 export { default as DownCheveron } from './DownCheveron';
 export { default as PlaceHolderImage } from './PlaceHolderImage';
 export { default as ProfileIcon } from './ProfileIcon';
+export { default as LocationIcon } from './LocationIcon';
+export { default as DestinationIcon } from './DestinationIcon';
+export { default as ZeroStars } from './ZeroStars';
+export { default as OneStar } from './OneStar';
+export { default as TwoStars } from './TwoStars';
+export { default as ThreeStars } from './ThreeStars';
+export { default as FourStars } from './FourStars';
+export { default as FiveStars } from './FiveStars';
