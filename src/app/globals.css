@@ -30,6 +30,9 @@
   .secondary-header {
     @apply text-3xl font-bold;
   }
+  .tip-container {
+    @apply  flex ;
+  }
 }
 
 
