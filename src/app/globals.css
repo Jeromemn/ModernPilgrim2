@@ -16,7 +16,7 @@
     @apply px-4 py-2 rounded-md bg-green text-light-brown;
   }
   .trip-card {
-    @apply bg-plain-white rounded-md shadow-[0px_0px_6px_1px_#1a202c] w-72 h-72 place-self-center p-8;
+    @apply bg-white rounded-md shadow-[0px_0px_6px_1px_#1a202c] w-72 h-72 place-self-center p-8;
   }
   .card-shadow {
     @apply shadow-[0px_0px_6px_1px_#1a202c];
@@ -32,6 +32,12 @@
   }
   .tip-container {
     @apply  flex ;
+  }
+  .heroImage {
+    @apply bg-black ;
+  }
+  .heroContent {
+    @apply flex flex-col z-20  ;
   }
 }
 

@@ -27,6 +27,10 @@ const mockUserProfile = {
           id: 3,
           tripImage: '/beachTrip.jpg',
         },
+        {
+          id: 4,
+          tripImage: '/beachTrip.jpg',
+        },
       ],
       hasTripImage: false,
       tripType: 'Beach',

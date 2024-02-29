@@ -14,13 +14,15 @@ module.exports = {
       '2xl': '1536px',
     },
     colors: {
+      transparent: 'transparent',
       'light-green': '#606c38',
       green: '#283618',
       tan: '#fffdf2',
       'light-brown': '#dda15e',
       brown: '#bc6c25',
       black: '#212529',
-      'plain-white': '#fff',
+      'dark-black': '#000',
+      white: '#fff',
     },
     fontFamily: {
       salsa: ['Salsa', 'cursive'],

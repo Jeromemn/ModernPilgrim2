@@ -17,51 +17,34 @@ const SingleTrip = ({ params }) => {
           <div className="max-w-2xl ">
             <div className="grid grid-cols-1 gap-2">
               {/*<PlaceHolderImage width={645} height={420} />*/}
-              <Image
-                alt="Snowy landscape"
-                className="rounded-lg w-full"
-                height="420"
-                src="/beachTrip.jpg"
-                style={{
-                  aspectRatio: '695/420',
-                  objectFit: 'cover',
-                }}
-                width="695"
-              />
+              {tripImages.length > 0 && (
+                <Image
+                  alt="Trip image"
+                  className="rounded-lg w-full"
+                  height="420"
+                  src={tripImages[0].tripImage}
+                  style={{
+                    aspectRatio: '695/420',
+                    objectFit: 'cover',
+                  }}
+                  width="695"
+                />
+              )}
               <div className="grid grid-cols-3 gap-2">
-                <Image
-                  alt="Snowy mountains"
-                  className="rounded-lg w-full"
-                  height="157"
-                  src="/beachTrip.jpg"
-                  style={{
-                    aspectRatio: '195/157',
-                    objectFit: 'cover',
-                  }}
-                  width="195"
-                />
-                <Image
-                  alt="Sunset in snow"
-                  className="rounded-lg w-full"
-                  height="157"
-                  src="/beachTrip.jpg"
-                  style={{
-                    aspectRatio: '195/157',
-                    objectFit: 'cover',
-                  }}
-                  width="195"
-                />
-                <Image
-                  alt="Northern lights"
-                  className="rounded-lg w-full"
-                  height="157"
-                  src="/beachTrip.jpg"
-                  style={{
-                    aspectRatio: '195/157',
-                    objectFit: 'cover',
-                  }}
-                  width="195"
-                />
+                {tripImages.slice(1).map((tripImage, id) => (
+                  <Image
+                    alt="Trip image"
+                    className="rounded-lg w-full"
+                    height="157"
+                    key={`${id}`}
+                    src={tripImage.tripImage}
+                    style={{
+                      aspectRatio: '195/157',
+                      objectFit: 'cover',
+                    }}
+                    width="195"
+                  />
+                ))}
               </div>
             </div>
           </div>
