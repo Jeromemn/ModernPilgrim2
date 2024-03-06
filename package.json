@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18",
     "eslint": "8.56.0",
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-react": "^7.33.2"
+    "eslint-plugin-react": "^7.33.2",
+    "next": "14.0.4",
+    "nuka-carousel": "^7.0.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

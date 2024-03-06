@@ -3,10 +3,13 @@ import ResultsLayout from '@/app/components/ResultsLayout';
 import HomeHeader from '@/app/components/HomeHeader';
 import { SearchIcon } from '@/app/icons';
 import TopPicksBanner from '@/app/components/TopPicksBanner';
+import CategoryBanner from "@/app/components/CategoryBanner";
+import CardSlider from '@/app/components/SliderStyles/CardSlider';
+import NukaCarousel from "@/app/components/NukaCarousel";
 
 export default function Home() {
   return (
-    <main className="w-full ">
+    <main className="w-full">
       <div className="h-screen">
         <div className="w-full h-full relative">
           <div className="h-5/6 relative">
@@ -57,7 +60,10 @@ export default function Home() {
             <TopPicksBanner />
           </div>
         </div>
-        <ResultsLayout />
+        <CardSlider />
+        {/*<NukaCarousel />*/}
+        <CategoryBanner category="Adventure" />
+        {/*<ResultsLayout />*/}
       </div>
     </main>
   );
