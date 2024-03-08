@@ -41,6 +41,15 @@
   }
 }
 
+  .slick-slide > div {
+    margin: 0 10px;
+    width: auto;
+  }
+
+  /*.slick-track {*/
+  /*  display: flex;*/
+  /*  gap: 10px;*/
+  /*}*/
 
 :root {
   --foreground-rgb: 0, 0, 0;

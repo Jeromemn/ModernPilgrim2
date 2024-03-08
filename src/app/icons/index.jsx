@@ -11,3 +11,6 @@ export { default as FourStars } from './FourStars';
 export { default as FiveStars } from './FiveStars';
 export { default as SearchIcon } from './SearchIcon';
 export { default as CalendarIcon } from './CalendarIcon';
+export { default as LeftChevron } from './LeftChevron';
+export { default as RightChevron } from './RightChevron';
+export { default as PlaceIcon } from './PlaceIcon';
