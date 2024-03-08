@@ -14,3 +14,4 @@ export { default as CalendarIcon } from './CalendarIcon';
 export { default as LeftChevron } from './LeftChevron';
 export { default as RightChevron } from './RightChevron';
 export { default as PlaceIcon } from './PlaceIcon';
+export { default as HeartIcon } from './HeartIcon';
