@@ -3,7 +3,8 @@ import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { PlaceHolderImage } from '@/app/icons';
+
+import { LeftChevron, RightChevron, PlaceIcon } from '@/app/icons';
 import Image from 'next/image';
 
 const MockImageGallery = [
@@ -18,7 +19,7 @@ const MockImageGallery = [
   { imgSrc: '/beachTrip.jpg', title: 'place 9' },
 ];
 
-const CardSlider = () => {
+const CardSlider = ({ sliderTitle, sliderDescription }) => {
   let sliderRef = useRef(null);
 
   const settings = {
@@ -29,6 +30,7 @@ const CardSlider = () => {
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -66,25 +68,47 @@ const CardSlider = () => {
   };
 
   return (
-    <div className="w-full flex justify-center">
-      <div className=" max-w-7xl  mx-0 my-auto flex flex-col gap-5">
-        <div className=" flex gap-6">
-          <button className="bg-black text-white p-5" onClick={previous}>Previous</button>
-          <button className="bg-black text-white p-5" onClick={next}>Next</button>
+    <div className="w-full flex flex-col justify-center overflow-hidden pl-44 gap-y-16 pb-32">
+      <div className="flex justify-center w-full pr-44">
+        <div className="w-full flex justify-between pl-5 pr-10">
+          <div className="flex flex-col gap-y-5">
+            <h2>{sliderTitle}</h2>
+            <p>{sliderDescription}</p>
+          </div>
+          <div className="flex space-x-4 items-end">
+            <button
+              onClick={previous}
+              className="flex items-center justify-center w-10 h-10 rounded-xl bg-green  text-white"
+            >
+              <LeftChevron />
+            </button>
+            <button
+              onClick={next}
+              className="flex items-center justify-center w-10 h-10 rounded-xl bg-light-brown text-white"
+            >
+              <RightChevron />
+            </button>
+          </div>
         </div>
-        <div className="container">
+      </div>
+
+      <div className="w-full flex justify-end">
+        <div className="w-full overflow-visible right-0 relative">
           <Slider
             ref={(slider) => {
               sliderRef = slider;
             }}
             {...settings}
+            className="w-full"
           >
-            {MockImageGallery.map((image, index, imgNumber) => (
-              <div key={index} className="w-80 h-56 border flex relative rounded-2xl flex-col p-3">
-                <Image src={image.imgSrc} alt={image.title} fill className="rounded-2xl" />
-                {/*<PlaceHolderImage imageName={imgNumber} width={200} height={150} />*/}
-                <div className="flex z-50 w-full h-full">
-                  <h3 className="text-white text-xl h-fit z-50">{image.title}</h3>
+            {MockImageGallery.map((image, index) => (
+              <div key={index} className="max-w-80 w-80 min-w-80 h-56 flex relative rounded-2xl flex-col p-3">
+                <Image src={image.imgSrc} alt={image.title} fill className="rounded-2xl h-full -wfull -z-20" />
+                <div className="flex z-50 w-full h-full items-end gap-x-4">
+                  <div className="flex items-center justify-center gap-x-4">
+                    <PlaceIcon />
+                    <h3 className="text-white text-2xl h-fit z-50">{image.title}</h3>
+                  </div>
                 </div>
               </div>
             ))}

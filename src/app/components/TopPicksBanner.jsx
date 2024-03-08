@@ -9,7 +9,6 @@ const TopPicksBanner = () => {
   // sort trips by likes in descending order
   const sortedTrips = [...trips].sort((a, b) => b.likes - a.likes);
 
-  console.log(sortedTrips);
   return (
     <div className="flex z-50 -bottom-20 absolute w-full">
       <div className="flex flex-col gap-3 relative start-20 pl-10">

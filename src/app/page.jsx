@@ -1,17 +1,15 @@
 import Image from 'next/image';
-import ResultsLayout from '@/app/components/ResultsLayout';
 import HomeHeader from '@/app/components/HomeHeader';
 import { SearchIcon } from '@/app/icons';
 import TopPicksBanner from '@/app/components/TopPicksBanner';
-import CategoryBanner from "@/app/components/CategoryBanner";
-import CardSlider from '@/app/components/SliderStyles/CardSlider';
-import NukaCarousel from "@/app/components/NukaCarousel";
+import CategoryBanner from '@/app/components/CategoryBanner';
+import CardSlider from '@/app/components/CardSlider';
 
 export default function Home() {
   return (
-    <main className="w-full">
-      <div className="h-screen">
-        <div className="w-full h-full relative">
+    <main className="w-full h-lvh">
+      <div className="">
+        <div className="w-full h-screen relative">
           <div className="h-5/6 relative">
             <Image
               // className="z-0"
@@ -20,10 +18,9 @@ export default function Home() {
               // width={1920}
               // height={1080}
               fill
-              objectFit={'cover'}
-              objectPosition={'center'}
-              // style={HeroStyle}
+              priority
               // layout="responsive"
+              className="object-cover bg-center"
             />
             <div
               className="w-full h-full overflow-hidden absolute bg-gradient-to-b from-dark-black/50
@@ -32,7 +29,7 @@ export default function Home() {
           </div>
           <HomeHeader />
           <div className="flex flex-col w-full h-5/6 justify-center items-center bg-transparent top-0 absolute">
-            <div className="bg-opacity-20 flex z-50 bg-white backdrop-blur rounded-xl ">
+            <div className="bg-opacity-20 flex z-50 bg-white backdrop-blur rounded-xl">
               <div className="px-4 flex bg-transparent py-2 w-auto gap-3 items-center">
                 <SearchIcon />
                 <input
@@ -48,7 +45,7 @@ export default function Home() {
                 />
                 <input className="bg-transparent text-white  focus:outline-none" id="end" type="date" />
                 <input
-                  className="bg-transparent text-white placeholder:text-white  focus:outline-none"
+                  className="bg-transparent text-white placeholder:text-white focus:outline-none"
                   id="budget"
                   placeholder="Budget"
                 />
@@ -60,10 +57,8 @@ export default function Home() {
             <TopPicksBanner />
           </div>
         </div>
-        <CardSlider />
-        {/*<NukaCarousel />*/}
+        <CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />
         <CategoryBanner category="Adventure" />
-        {/*<ResultsLayout />*/}
       </div>
     </main>
   );
