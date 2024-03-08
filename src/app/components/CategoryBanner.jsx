@@ -1,21 +1,21 @@
 'use client';
 import { useRef } from 'react';
-import Image from 'next/image';
 import { LeftChevron, RightChevron } from '@/app/icons';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import TripCard from '@/app/components/TripCard';
 
 const MockImageGallery = [
-  { imgSrc: '/beachTrip.jpg', title: 'place 1' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 2' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 3' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 4' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 5' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 6' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 7' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 8' },
-  { imgSrc: '/beachTrip.jpg', title: 'place 9' },
+  { imgSrc: '/beachTrip.jpg', title: 'place 1', price: 100 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 2', price: 200 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 3', price: 300 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 4', price: 400 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 5', price: 500 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 6', price: 600 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 7', price: 700 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 8', price: 800 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 9', price: 900 },
 ];
 
 // option for the carousel to be used in the category banner
@@ -100,12 +100,7 @@ const CategoryBanner = ({ category }) => {
           {...settings}
         >
           {MockImageGallery.map((image, index) => (
-            <div key={index} className="flex max-w-80 h-56 rounded-2xl p-3 relative">
-              <Image src={image.imgSrc} alt={image.title} fill className="rounded-2xl" />
-              <div className="flex z-50 w-full h-full">
-                <h3 className="text-white text-xl h-fit z-50">{image.title}</h3>
-              </div>
-            </div>
+            <TripCard imgSrc={image.imgSrc} key={index} location={image.title} canLike />
           ))}
         </Slider>
       </div>
