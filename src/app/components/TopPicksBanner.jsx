@@ -10,7 +10,7 @@ const TopPicksBanner = () => {
   const sortedTrips = [...trips].sort((a, b) => b.likes - a.likes);
 
   return (
-    <div className="flex z-50 -bottom-20 absolute w-full">
+    <div className="flex z-50 -bottom-20 absolute w-full overflow-hidden">
       <div className="flex flex-col gap-3 relative start-20 pl-10">
         <h2 className="text-white">Top Picks</h2>
         <div className="flex gap-5">
