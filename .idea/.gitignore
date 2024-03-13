@@ -3,3 +3,7 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/copilot/chatSessions/xd.lck
+/copilot/chatSessions/00000000000.xd
+# GitHub Copilot persisted chat sessions
+/copilot/chatSessions

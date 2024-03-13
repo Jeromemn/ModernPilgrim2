@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceIcon, HeartIcon } from '@/app/icons';
 
-const TripCard = ({ location, imgSrc, tripId, canLike, hasCost, cost }) => {
+const TripCard = ({ location, imgSrc, tripId, canLike, cost }) => {
   const handleLike = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -22,7 +22,7 @@ const TripCard = ({ location, imgSrc, tripId, canLike, hasCost, cost }) => {
               </button>
             </div>
           )}
-          {hasCost && (
+          {cost && (
             <div className="flex h-full items-end justify-between">
               <div className="flex gap-x-4">
                 <PlaceIcon />
@@ -33,7 +33,7 @@ const TripCard = ({ location, imgSrc, tripId, canLike, hasCost, cost }) => {
               </div>
             </div>
           )}
-          {!hasCost && (
+          {!cost && (
             <div className="flex h-full items-end gap-x-4">
               <PlaceIcon />
               <h3 className="text-white text-2xl h-fit">{location}</h3>

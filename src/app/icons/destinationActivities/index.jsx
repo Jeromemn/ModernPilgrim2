@@ -1,0 +1,14 @@
+export { default as ScubaIcon } from './ScubaIcon';
+export { default as ConcertIcon } from './ConcertIcon';
+export { default as HikingIcon } from './HikingIcon';
+export { default as GolfIcon } from './GolfIcon';
+export { default as NatureWatching } from './NatureWatching';
+export { default as BikingIcon } from './BikingIcon';
+export { default as SightSeeingIcon } from './SightSeeingIcon';
+export { default as SnowSportsIcon } from './SnowSportsIcon';
+export { default as SportingEventsIcon } from './SportingEventsIcon';
+export { default as SurfingIcon } from './SurfingIcon';
+export { default as WaterSportsIcon } from './WaterSportsIcon';
+export { default as VisitIcon } from './VisitIcon';
+export { default as WineIcon } from './WineIcon';
+export { default as OffRoadingIcon } from './OffRoadingIcon';

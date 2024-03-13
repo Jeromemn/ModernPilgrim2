@@ -71,7 +71,7 @@ const CategoryBanner = ({ category }) => {
   };
 
   return (
-    <div className="w-full flex justify-center overflow-hidden bg-brown pb-32">
+    <div className="w-full flex justify-center overflow-hidden pb-32">
       <div className="flex flex-col gap-8 relative container">
         <div className="flex justify-between items-end pl-5 pr-14">
           <div className="flex flex-col gap-y-5">
