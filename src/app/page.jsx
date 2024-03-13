@@ -4,7 +4,8 @@ import { SearchIcon } from '@/app/icons';
 import TopPicksBanner from '@/app/components/TopPicksBanner';
 import CategoryBanner from '@/app/components/CategoryBanner';
 import CardSlider from '@/app/components/CardSlider';
-import DestinationTypes from "@/app/components/DestinationTypes";
+import DestinationTypes from '@/app/components/DestinationTypes';
+import DestinationActivities from '@/app/components/DestinationActivities';
 
 export default function Home() {
   return (
@@ -59,8 +60,9 @@ export default function Home() {
           </div>
         </div>
         <CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />
-        <DestinationTypes />
+        <DestinationTypes activities />
         <CategoryBanner category="Adventure" />
+        <DestinationActivities />
       </div>
     </main>
   );

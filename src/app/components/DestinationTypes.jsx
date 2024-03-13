@@ -1,5 +1,6 @@
-// 'use client';
+'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   IconicCities,
   Beaches,
@@ -65,23 +66,24 @@ const destinationsData = [
   //   icon: valley,
   // },
 ];
+
 const DestinationTypes = () => {
   return (
     <div className="bg-light-green w-full flex justify-center p-10 mb-5 ">
       <div className="container flex flex-col gap-7">
         <div className="w-fit flex flex-col gap-2">
-          <h2>Destination Types</h2>
-          <Line color='#dda15e' style={{ width: '60%' }} />
+          <h2>Explore by category</h2>
+          <Line color="#dda15e" style={{ width: '60%' }} />
         </div>
-        <ul className="flex justify-between ">
+        <ul className="flex justify-between">
           {destinationsData.map((destination) => (
-            <li className="flex flex-col items-center" key={destination.id}>
-              <Image src={destination.icon} alt={destination.name} height={35} width={35} />
-              <p className="text-white opacity-40">{destination.name}</p>
-            </li>
+            <Link href={`/destinations/${destination.name}`} key={destination.id}>
+              <li className="flex flex-col items-center" key={destination.id}>
+                <Image src={destination.icon} alt={destination.name} height={35} width={35} />
+                <p className="text-white opacity-40">{destination.name}</p>
+              </li>
+            </Link>
           ))}
-          {/*<Image src={mountain} alt="mountainicon" />*/}
-          {/*<h3> {name}</h3>*/}
         </ul>
       </div>
     </div>
