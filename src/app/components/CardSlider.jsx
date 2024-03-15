@@ -73,10 +73,10 @@ const CardSlider = ({ sliderTitle, sliderDescription }) => {
     <div className="xl:w-full flex flex-col justify-center overflow-hidden xl:pl-44 gap-y-8 md:gap-y-16 pb-16 md:pb-32 md:mx-auto my-0 md:pl-8 mx-5">
       <div className="flex justify-center w-full xl:pr-44 container">
         <div className="w-full flex justify-between xl:pl-5 xl:pr-10 md:pr-8">
-          <div className="flex flex-col gap-y-4">
-            <h2 className="">{sliderTitle}</h2>
+          <div className="flex flex-col gap-y-4 w-fit">
+            <h2 className="w-fit">{sliderTitle}</h2>
             <Line color="#dda15e" style={{ width: '60%' }} />
-            <p>{sliderDescription}</p>
+            <p className="w-fit">{sliderDescription}</p>
           </div>
           <div className="flex space-x-4 items-end">
             <button
