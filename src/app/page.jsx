@@ -2,7 +2,6 @@ import Image from 'next/image';
 import HomeHeader from '@/app/components/HomeHeader';
 import { SearchIcon } from '@/app/icons';
 import TopPicksBanner from '@/app/components/TopPicksBanner';
-import CategoryBanner from '@/app/components/CategoryBanner';
 import CardSlider from '@/app/components/CardSlider';
 import DestinationTypes from '@/app/components/DestinationTypes';
 import DestinationActivities from '@/app/components/DestinationActivities';
@@ -35,19 +34,19 @@ export default function Home() {
               <div className="px-4 flex bg-transparent py-2 w-auto gap-3 items-center">
                 <SearchIcon />
                 <input
-                  className="bg-transparent text-white w-72 placeholder:text-white focus:outline-none"
+                  className="bg-transparent text-white w-fit max-w-40 placeholder:text-white focus:outline-none"
                   id="search"
                   type="search"
-                  placeholder="Where would you like to go?"
+                  placeholder="Explore Trips"
                 />
+                {/*<input*/}
+                {/*  className="bg-transparent text-white w-fit  focus:outline-none"*/}
+                {/*  id="start"*/}
+                {/*  type="date"*/}
+                {/*/>*/}
+                {/*<input className="bg-transparent text-white max-w-fit focus:outline-none" id="end" type="date" />*/}
                 <input
-                  className="bg-transparent text-white flex flex-row-reverse  focus:outline-none"
-                  id="start"
-                  type="date"
-                />
-                <input className="bg-transparent text-white  focus:outline-none" id="end" type="date" />
-                <input
-                  className="bg-transparent text-white placeholder:text-white focus:outline-none"
+                  className="bg-transparent text-white placeholder:text-white focus:outline-none w-fit max-w-16 md:max-w-24"
                   id="budget"
                   placeholder="Budget"
                 />
@@ -61,7 +60,7 @@ export default function Home() {
         </div>
         <CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />
         <DestinationTypes activities />
-        <CategoryBanner category="Adventure" />
+        <CardSlider sliderTitle="Best Deals" sliderDescription="Most cost effective trips" />
         <DestinationActivities />
       </div>
     </main>

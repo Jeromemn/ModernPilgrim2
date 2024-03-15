@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { LeftChevron, RightChevron, PlaceIcon } from '@/app/icons';
+import { LeftChevron, RightChevron, PlaceIcon, Line } from '@/app/icons';
 import Image from 'next/image';
 
 const MockImageGallery = [
@@ -26,34 +26,36 @@ const CardSlider = ({ sliderTitle, sliderDescription }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
+
+    // centerPadding: "60px",
     variableWidth: true,
+    // adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 3,
-          infinite: true,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 425,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          variableWidth: false,
         },
       },
     ],
@@ -68,12 +70,13 @@ const CardSlider = ({ sliderTitle, sliderDescription }) => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center overflow-hidden pl-44 gap-y-16 pb-32">
-      <div className="flex justify-center w-full pr-44">
-        <div className="w-full flex justify-between pl-5 pr-10">
-          <div className="flex flex-col gap-y-5">
-            <h2>{sliderTitle}</h2>
-            <p>{sliderDescription}</p>
+    <div className="xl:w-full flex flex-col justify-center overflow-hidden xl:pl-44 gap-y-8 md:gap-y-16 pb-16 md:pb-32 md:mx-auto my-0 md:pl-8 mx-5">
+      <div className="flex justify-center w-full xl:pr-44 container">
+        <div className="w-full flex justify-between xl:pl-5 xl:pr-10 md:pr-8">
+          <div className="flex flex-col gap-y-4 w-fit">
+            <h2 className="w-fit">{sliderTitle}</h2>
+            <Line color="#dda15e" style={{ width: '60%' }} />
+            <p className="w-fit">{sliderDescription}</p>
           </div>
           <div className="flex space-x-4 items-end">
             <button
@@ -92,18 +95,20 @@ const CardSlider = ({ sliderTitle, sliderDescription }) => {
         </div>
       </div>
 
-      <div className="w-full flex justify-end">
-        <div className="w-full overflow-visible right-0 relative">
+      <div className="w-full flex justify-start md:max-h-56">
+        <div className="w-full relative md:max-h-56 overflow-y-hidden self-start justify-self-start">
           <Slider
             ref={(slider) => {
               sliderRef = slider;
             }}
             {...settings}
-            className="w-full"
           >
             {MockImageGallery.map((image, index) => (
-              <div key={index} className="max-w-80 w-80 min-w-80 h-56 flex relative rounded-2xl flex-col p-3">
-                <Image src={image.imgSrc} alt={image.title} fill className="rounded-2xl h-full -wfull -z-20" />
+              <div
+                key={index}
+                className="md:max-w-80 md:w-80 md:min-w-80 md:h-56 h-64 w-96 flex relative rounded-2xl flex-col p-3"
+              >
+                <Image src={image.imgSrc} alt={image.title} fill className="rounded-2xl h-full -z-20" />
                 <div className="flex z-50 w-full h-full items-end gap-x-4">
                   <div className="flex items-center justify-center gap-x-4">
                     <PlaceIcon />

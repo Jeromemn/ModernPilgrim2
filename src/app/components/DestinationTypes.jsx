@@ -63,19 +63,19 @@ const destinationsData = [
   // {
   //   id: 10,
   //   name: 'Historical',
-  //   icon: valley,
+  //   icon: Castles,
   // },
 ];
 
 const DestinationTypes = () => {
   return (
-    <div className="bg-light-green w-full flex justify-center p-10 mb-5 ">
+    <div className="bg-light-green w-full flex justify-center p-6 md:p-10 mb-5 ">
       <div className="container flex flex-col gap-7">
         <div className="w-fit flex flex-col gap-2">
           <h2>Explore by category</h2>
           <Line color="#dda15e" style={{ width: '60%' }} />
         </div>
-        <ul className="flex justify-between">
+        <ul className="lg:flex lg:justify-between grid grid-rows-3 grid-flow-col gap-y-2">
           {destinationsData.map((destination) => (
             <Link href={`/destinations/${destination.name}`} key={destination.id}>
               <li className="flex flex-col items-center" key={destination.id}>
