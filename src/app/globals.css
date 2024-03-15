@@ -42,14 +42,41 @@
 }
 
   .slick-slide > div {
-    margin: 0 10px;
-    width: auto;
+    /*width: 320px;*/
+    min-width: 320px;
+    margin:0 10px;
+
+  }
+  .slick-slider {
+    /*max-height: 300px;*/
+    /*  for small media query */
+    mq(768px) {
+    max-height: 224px;
+  }
+  mq(425px) {
+    width: 224px;
+    min-width: 224px;
+    margin:0 10px;
+    max-height: 300px;
+  }
   }
 
-  /*.slick-track {*/
-  /*  display: flex;*/
-  /*  gap: 10px;*/
-  /*}*/
+  .slick-list {
+    /*max-height: 300px;*/
+  /*  for small media query */
+    mq(768px) {
+      max-height: 224px;
+    }
+  }
+
+
+  .slick-track {
+    max-height: fit-content;
+    /*  for small media query */
+
+
+
+  }
 
 :root {
   --foreground-rgb: 0, 0, 0;

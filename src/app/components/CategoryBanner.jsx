@@ -2,8 +2,8 @@
 import { useRef } from 'react';
 import { LeftChevron, RightChevron } from '@/app/icons';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 import TripCard from '@/app/components/TripCard';
 
 const MockImageGallery = [

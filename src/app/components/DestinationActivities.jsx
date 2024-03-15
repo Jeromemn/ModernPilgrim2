@@ -100,7 +100,7 @@ const DestinationActivities = () => {
           <h2>Explore by Activity</h2>
           <Line color="#dda15e" style={{ width: '60%' }} />
         </div>
-        <div className="grid grid-rows-2 grid-flow-col gap-y-6">
+        <div className="grid grid-cols-3 lg:grid-rows-2 lg:grid-flow-col gap-y-6 ">
           {activitiesData.map(({ name, Icon, id }) => (
             <Link key={id} href="">
               <div key={id} className="flex flex-col items-center gap-y-2">
