@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import HomeHeader from '@/app/components/HomeHeader';
 import TripCard from '@/app/components/TripCard';
+import DropDown from '@/app/components/DropDown';
 import { SearchIcon } from '@/app/icons';
 
 const MockImageGallery = [
@@ -16,6 +17,38 @@ const MockImageGallery = [
   { imgSrc: '/beachTrip.jpg', title: 'place 8', price: 800 },
   { imgSrc: '/beachTrip.jpg', title: 'place 9', price: 900 },
 ];
+
+const destinationsData = [
+  'Mountains',
+  'Beaches',
+  'Iconic Cities',
+  'Deserts',
+  'House Boats',
+  'CountrySide',
+  'Camping',
+  'Castles',
+  'Tropical',
+  'Historical',
+];
+
+const destinationActivities = [
+  'Hiking',
+  'Scuba Diving',
+  'Golfing',
+  'Surfing',
+  'Water Sports',
+  'Wine Tasting',
+  'Sightseeing',
+  'Nature Watching',
+  'Concerts',
+  'Biking',
+  'Snow Sports',
+  'Sporting Events',
+  'Historical Tours',
+  'Off Roading',
+];
+
+// console.log(destinationsData.destination[].name);
 const ResultsPage = () => {
   return (
     <div className="h-screen w-full">
@@ -28,15 +61,22 @@ const ResultsPage = () => {
           <p className="text-white text-2xl text-center"> Find stories, tips and ideas for your next trip to </p>
         </div>
       </div>
-      <div className="mx-auto flex flex-col w-full justify-center items-center gap-4">
+      <div className="mx-auto flex flex-col w-full justify-center items-center gap-4 pt-5">
         {/*<div className="w-full bg-tan flex justify-center flex-col gap-3">*/}
-        <div className="flex">
-          <div className="border border-green w-fit flex items-center">
-            <SearchIcon />
-            <input className="w-fit" id="search" type="search" placeholder="Find places to explore" />
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-4">
+            <div className="border border-green rounded-2xl px-2 py-1 w-fit flex items-center">
+              <SearchIcon />
+              <input className="w-fit" id="search" type="search" placeholder="Find places to explore" />
+            </div>
+            <div className="border border-green w-fit rounded-2xl px-2 py-1">
+              <input className="w-10" id="budget" placeholder="$" />
+            </div>
           </div>
-          <div className="border border-green w-fit">
-            <input className="w-10" id="budget" placeholder="$" />
+
+          <div className="flex flex-col lg:flex-row gap-2">
+            <DropDown options={destinationsData} filterBy="trip type" />
+            <DropDown options={destinationActivities} filterBy="activities" />
           </div>
         </div>
         {/*</div>*/}
