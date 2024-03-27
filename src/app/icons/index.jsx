@@ -1,4 +1,4 @@
-export { default as DownCheveron } from './DownCheveron';
+export { default as DownChevron } from './DownChevron';
 export { default as PlaceHolderImage } from './PlaceHolderImage';
 export { default as ProfileIcon } from './ProfileIcon';
 export { default as LocationIcon } from './LocationIcon';
@@ -16,3 +16,4 @@ export { default as RightChevron } from './RightChevron';
 export { default as PlaceIcon } from './PlaceIcon';
 export { default as HeartIcon } from './HeartIcon';
 export { default as Line } from './Line';
+export { default as CloseIcon } from './CloseIcon';
