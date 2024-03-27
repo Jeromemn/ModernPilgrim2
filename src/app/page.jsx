@@ -32,7 +32,7 @@ export default function Home() {
           <div className="flex flex-col w-full h-5/6 justify-center items-center bg-transparent top-0 absolute">
             <div className="bg-opacity-20 flex z-50 bg-white backdrop-blur rounded-xl">
               <div className="px-4 flex bg-transparent py-2 w-auto gap-3 items-center">
-                <SearchIcon />
+                <SearchIcon color="#fff" />
                 <input
                   className="bg-transparent text-white w-fit max-w-40 placeholder:text-white focus:outline-none"
                   id="search"
