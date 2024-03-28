@@ -94,13 +94,13 @@ const activitiesData = [
 
 const DestinationActivities = () => {
   return (
-    <div className="bg-light-green w-full flex justify-center p-10 mb-5 ">
+    <div className="bg-light-green w-full flex justify-center p-10 mb-5">
       <div className="container flex flex-col gap-7">
         <div className="w-fit flex flex-col gap-2">
           <h2>Explore by Activity</h2>
           <Line color="#dda15e" style={{ width: '60%' }} />
         </div>
-        <div className="grid grid-cols-3 lg:grid-cols-7 lg:grid-rows-2 lg:grid-flow-col gap-y-6 ">
+        <div className="grid grid-cols-3 lg:grid-cols-7 lg:grid-rows-2 lg:grid-flow-col gap-y-6">
           {activitiesData.map(({ name, Icon, id }) => (
             <Link key={id} href="">
               <div key={id} className="flex flex-col items-center gap-y-2">
