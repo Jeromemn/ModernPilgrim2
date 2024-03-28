@@ -81,7 +81,7 @@ const CardSlider = ({ sliderTitle, sliderDescription }) => {
           <div className="flex space-x-4 items-end">
             <button
               onClick={previous}
-              className="flex items-center justify-center w-10 h-10 rounded-xl bg-green  text-white"
+              className="flex items-center justify-center w-10 h-10 rounded-xl bg-green text-white"
             >
               <LeftChevron />
             </button>

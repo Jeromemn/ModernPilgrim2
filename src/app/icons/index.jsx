@@ -17,3 +17,5 @@ export { default as PlaceIcon } from './PlaceIcon';
 export { default as HeartIcon } from './HeartIcon';
 export { default as Line } from './Line';
 export { default as CloseIcon } from './CloseIcon';
+export { default as MobileMenuIcon } from './MobileMenuIcon';
+export { default as Money } from './Money';

@@ -41,15 +41,16 @@
   }
 }
 
+.mobileContainer {
+  max-height: calc(100vh - 130px);
+}
+
   .slick-slide > div {
-    /*width: 320px;*/
     min-width: 320px;
     margin:0 10px;
 
   }
   .slick-slider {
-    /*max-height: 300px;*/
-    /*  for small media query */
     mq(768px) {
     max-height: 224px;
   }
@@ -62,8 +63,6 @@
   }
 
   .slick-list {
-    /*max-height: 300px;*/
-  /*  for small media query */
     mq(768px) {
       max-height: 224px;
     }
@@ -72,10 +71,6 @@
 
   .slick-track {
     max-height: fit-content;
-    /*  for small media query */
-
-
-
   }
 
 :root {
@@ -95,10 +90,4 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: 0, 0, 0;
-  /*background: linear-gradient(*/
-  /*    to bottom,*/
-  /*    transparent,*/
-  /*    rgb(var(--background-end-rgb))*/
-  /*  )*/
-  /*  rgb(var(--background-start-rgb));*/
 }
