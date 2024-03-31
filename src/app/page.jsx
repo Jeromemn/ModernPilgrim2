@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import HomeHeader from '@/app/components/HomeHeader';
 import { SearchIcon } from '@/app/icons';
-import TopPicksBanner from '@/app/components/TopPicksBanner';
-import CardSlider from '@/app/components/CardSlider';
-import DestinationTypes from '@/app/components/DestinationTypes';
-import DestinationActivities from '@/app/components/DestinationActivities';
+// import TopPicksBanner from '@/app/components/TopPicksBanner';
+// import CardSlider from '@/app/components/CardSlider';
+// import DestinationTypes from '@/app/components/DestinationTypes';
+// import DestinationActivities from '@/app/components/DestinationActivities';
 import Form from '@/app/components/Form';
 
 export default function Home() {
