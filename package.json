@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "eslint": "8.56.0",
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.4",
     "next": "14.0.4",
     "nuka-carousel": "^7.0.0",
     "react": "^18",
