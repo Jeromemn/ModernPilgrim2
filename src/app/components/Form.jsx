@@ -1,7 +1,18 @@
-import { addTrip, getTrips } from '@/actions/action';
-const Form = async () => {
-  const trips = await getTrips();
-  console.log(trips);
+'use client';
+import { useEffect, useState } from 'react';
+import { addTrip } from '@/actions/action';
+const Form = () => {
+  const [trips, setTrips] = useState([]);
+  useEffect(() => {
+    const fetchTrips = async () => {
+      const response = await fetch('/api/trips');
+      const data = await response.json();
+      console.log(data.trips);
+      setTrips(data.trips);
+    };
+    fetchTrips();
+  }, []);
+  // console.log(trips);
   return (
     <div>
       <div>

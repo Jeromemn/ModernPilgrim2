@@ -1,13 +1,15 @@
+'use server';
 import Image from 'next/image';
 import HomeHeader from '@/app/components/HomeHeader';
 import { SearchIcon } from '@/app/icons';
+// import { getTrips } from '@/actions/action';
 // import TopPicksBanner from '@/app/components/TopPicksBanner';
 // import CardSlider from '@/app/components/CardSlider';
 // import DestinationTypes from '@/app/components/DestinationTypes';
 // import DestinationActivities from '@/app/components/DestinationActivities';
 import Form from '@/app/components/Form';
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <div>
