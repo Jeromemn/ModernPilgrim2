@@ -1,13 +1,10 @@
-'use server';
 import Image from 'next/image';
 import HomeHeader from '@/app/components/HomeHeader';
 import { SearchIcon } from '@/app/icons';
-// import { getTrips } from '@/actions/action';
-// import TopPicksBanner from '@/app/components/TopPicksBanner';
-// import CardSlider from '@/app/components/CardSlider';
-// import DestinationTypes from '@/app/components/DestinationTypes';
-// import DestinationActivities from '@/app/components/DestinationActivities';
-import Form from '@/app/components/Form';
+import TopPicksBanner from '@/app/components/TopPicksBanner';
+import CardSlider from '@/app/components/CardSlider';
+import DestinationTypes from '@/app/components/DestinationTypes';
+import DestinationActivities from '@/app/components/DestinationActivities';
 
 export default async function Home() {
   return (
@@ -48,16 +45,13 @@ export default async function Home() {
                 </button>
               </div>
             </div>
-            {/*<TopPicksBanner />*/}
+            <TopPicksBanner />
           </div>
         </div>
-        {/*<CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />*/}
-        {/*<DestinationTypes activities />*/}
-        {/*<CardSlider sliderTitle="Best Deals" sliderDescription="Most cost effective trips" />*/}
-        {/*<DestinationActivities />*/}
-        <div className="flex justify-center pb-10">
-          <Form />
-        </div>
+        <CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />
+        <DestinationTypes />
+        <CardSlider sliderTitle="Best Deals" sliderDescription="Most cost effective trips" />
+        <DestinationActivities />
       </div>
     </main>
   );

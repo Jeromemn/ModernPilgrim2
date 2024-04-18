@@ -12,6 +12,9 @@
   .btn {
     @apply px-4 py-2 rounded-md bg-light-green text-white;
   }
+  .FormBtn {
+    @apply flex justify-center p-2 border rounded-xl;
+  }
   .loginBtn {
     @apply px-4 py-2 rounded-md bg-green text-light-brown;
   }
@@ -31,13 +34,13 @@
     @apply text-3xl font-bold;
   }
   .tip-container {
-    @apply  flex ;
+    @apply flex;
   }
   .heroImage {
-    @apply bg-black ;
+    @apply bg-black;
   }
   .heroContent {
-    @apply flex flex-col z-20  ;
+    @apply flex flex-col z-20;
   }
 }
 
@@ -45,33 +48,67 @@
   max-height: calc(100vh - 130px);
 }
 
-  .slick-slide > div {
-    min-width: 320px;
-    margin:0 10px;
-
-  }
-  .slick-slider {
-    mq(768px) {
+.slick-slide > div {
+  min-width: 320px;
+  margin: 0 10px;
+}
+.slick-slider {
+  mq(768px) {
     max-height: 224px;
   }
   mq(425px) {
     width: 224px;
     min-width: 224px;
-    margin:0 10px;
+    margin: 0 10px;
     max-height: 300px;
   }
-  }
+}
 
-  .slick-list {
-    mq(768px) {
-      max-height: 224px;
-    }
+.slick-list {
+  mq(768px) {
+    max-height: 224px;
   }
+}
 
+.slick-track {
+  max-height: fit-content;
+}
 
-  .slick-track {
-    max-height: fit-content;
+@keyframes drawBorder {
+  0% {
+    border-color: transparent;
+    border-left-color: #4caf50; /* Start color */
   }
+  25% {
+    border-bottom-color: #4caf50;
+  }
+  50% {
+    border-right-color: #4caf50;
+  }
+  75% {
+    border-top-color: #4caf50;
+  }
+  100% {
+    border-color: #4caf50; /* End color */
+  }
+}
+
+.border-animate {
+  animation: drawBorder 10s forwards;
+}
+
+.input-focus-animate input:focus {
+  animation: glowBorder 1.5s forwards;
+}
+
+@keyframes glowBorder {
+  0% {
+    box-shadow: 0 0 0px 0px #4caf50;
+  }
+  100% {
+    box-shadow: 0 0 8px 3px #4caf50;
+  }
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
