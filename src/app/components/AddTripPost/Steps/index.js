@@ -1,0 +1,9 @@
+export { default as LocationStep } from './LocationStep';
+export { default as TitleStep } from './TitleStep';
+export { default as DescriptionStep } from './DescriptionStep';
+export { default as DatesStep } from './DatesStep';
+export { default as DestinationTypeStep } from './DestinationTypeStep';
+export { default as BudgetStep } from './BudgetStep';
+export { default as ActivitiesStep } from './ActivitiesStep';
+export { default as TipsStep } from './TipsStep';
+export { default as ImagesStep } from './ImagesStep';

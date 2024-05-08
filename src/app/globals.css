@@ -13,7 +13,10 @@
     @apply px-4 py-2 rounded-md bg-light-green text-white;
   }
   .FormBtn {
-    @apply flex justify-center p-2 border rounded-xl;
+    @apply px-4 py-1 rounded-md bg-black/50 text-light-brown border w-16 text-lg;
+  }
+  .yesNoBtn {
+    @apply px-4 py-1 rounded-md bg-black/50 text-light-brown border w-16 text-lg;
   }
   .loginBtn {
     @apply px-4 py-2 rounded-md bg-green text-light-brown;
@@ -42,6 +45,55 @@
   .heroContent {
     @apply flex flex-col z-20;
   }
+  .stepHeader {
+    @apply text-3xl font-bold;
+  }
+  .stepContainer {
+    @apply grid grid-cols-2 w-full h-full bg-light-green;
+  }
+  .mobileStepContainer {
+    @apply grid grid-cols-1 w-full h-full bg-light-green;
+  }
+  .stepContent {
+    @apply flex flex-col gap-4 justify-start;
+  }
+  .mobileStepContent {
+    @apply flex flex-col gap-4 justify-start;
+  }
+  .stepContentWrapper {
+    @apply flex flex-col bg-light-green w-full h-full justify-center items-center;
+  }
+  .mobileStepContentWrapper {
+    @apply flex flex-col bg-light-green w-full h-full items-center;
+  }
+  .stepImage {
+    @apply lg:w-full lg:h-full lg:relative lg:flex lg:flex-col hidden;
+  }
+  .backBtn {
+    @apply py-2 w-fit;
+  }
+  .destinationGrid {
+    @apply grid grid-flow-col grid-rows-3 gap-3;
+  }
+  .imagesSlide {
+    @apply flex gap-2 justify-start overflow-x-scroll overscroll-auto snap-x touch-auto w-[354.16px];
+  }
+  .imagesContainer {
+    @apply flex gap-2 flex-wrap justify-center lg:overflow-hidden p-2 w-full;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    /*scrollbar-gutter: stable;*/
+    scrollbar-color: rgba(190, 190, 190, 0.43) transparent;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .mobileContainer {

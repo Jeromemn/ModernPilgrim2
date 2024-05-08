@@ -24,6 +24,9 @@ module.exports = {
       black: '#212529',
       'dark-black': '#000',
       white: '#fff',
+      grey: 'rgba(33,37,41,0.47)',
+      'light-brown-faded': 'rgba(221,161,94,0.75)',
+      red: 'rgba(220,71,71,0.85)',
     },
     fontFamily: {
       salsa: ['Salsa', 'cursive'],

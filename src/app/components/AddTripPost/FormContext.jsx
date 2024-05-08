@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useReducer } from 'react';
+import { createContext, useCallback, useContext, useMemo, useReducer, useState, useEffect } from 'react';
 
 const FormContext = createContext(null);
 
@@ -12,6 +12,21 @@ const formReducer = (state, action) => {
       return {
         ...state,
         [action.payload.name]: action.payload.value,
+      };
+    case 'monthChange':
+      return {
+        ...state,
+        month: action.payload,
+      };
+    case 'setStartDate':
+      return {
+        ...state,
+        startDate: action.payload.date,
+      };
+    case 'setEndDate':
+      return {
+        ...state,
+        endDate: action.payload.date,
       };
     case 'toggleTripType':
       if (!state.typeOfTrip.includes(action.payload)) {
@@ -41,16 +56,21 @@ const formReducer = (state, action) => {
         tips: [...state.tips, { category: '', content: '' }],
       };
     case 'updateTip': {
-      const newTips = [...state.tips];
-      newTips[action.payload.index][action.payload.field] = action.payload.value;
+      const newTips = state.tips.map((tip) =>
+        tip.category === action.payload.category
+          ? { category: action.payload.category, content: action.payload.content }
+          : tip,
+      );
+      if (!newTips.find((tip) => tip.category === action.payload.category)) {
+        newTips.push({ category: action.payload.category, content: action.payload.content });
+      }
       return {
         ...state,
         tips: newTips,
       };
     }
     case 'removeTip': {
-      const newTips = [...state.tips];
-      newTips.splice(action.payload.index, 1);
+      const newTips = state.tips.filter((tip) => tip.category !== action.payload.category);
       return {
         ...state,
         tips: newTips,
@@ -68,34 +88,50 @@ const formReducer = (state, action) => {
         tripImages: state.tripImages.filter((image) => image.imageName !== action.payload),
       };
     }
+    case 'updateImages': {
+      return {
+        ...state,
+        tripImages: action.payload,
+      };
+    }
     default:
       return state;
   }
 };
 
 const FormProvider = ({ children }) => {
+  const [step, setStep] = useState(0);
   const [state, dispatch] = useReducer(formReducer, {
-    title: '',
     location: '',
+    title: '',
     date: '',
     startDate: '',
     endDate: '',
-    month: '',
+    month: [],
     description: '',
     tripBudget: '',
     typeOfTrip: [],
     tripStatus: 'Upcoming',
     activities: [],
-    tips: [
-      {
-        category: '',
-        content: '',
-      },
-    ],
+    tips: [],
     tripImages: [],
   });
 
-  const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
+  useEffect(() => {
+    if (state.location) {
+      dispatch({ type: 'inputChange', payload: { name: 'title', value: state.location } });
+    }
+  }, [state.location]);
+
+  const onNext = useCallback(() => {
+    setStep((prev) => prev + 1);
+  }, []);
+
+  const onPrev = useCallback(() => {
+    setStep((prev) => prev - 1);
+  }, []);
+
+  const value = useMemo(() => ({ state, dispatch, step, onNext, onPrev }), [state, dispatch, step, onNext, onPrev]);
 
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 };

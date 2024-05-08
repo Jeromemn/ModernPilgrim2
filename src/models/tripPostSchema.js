@@ -23,15 +23,22 @@ const tripSchema = new mongoose.Schema({
     // required: true,
   },
   startDate: {
-    type: Date,
+    type: String,
     // required: true,
   },
   endDate: {
-    type: Date,
+    type: String,
     // required: true,
   },
   month: {
-    type: String,
+    monthName: {
+      type: String,
+      // required: true,
+    },
+    year: {
+      type: Number,
+      // required: true,
+    },
     // required: true,
   },
   description: {
@@ -39,7 +46,7 @@ const tripSchema = new mongoose.Schema({
     // required: true,
   },
   tripBudget: {
-    type: Number,
+    type: String,
   },
   activities: [String],
   typeOfTrip: {

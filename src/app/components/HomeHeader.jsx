@@ -51,8 +51,8 @@ const HomeHeader = () => {
               <li>
                 <a href="/searchResults">Explore</a>
               </li>
-              <li>
-                <a href="#">Submit Voyage</a>
+              <li className="cursor-pointer" onClick={toggleSubmitModal}>
+                Submit Voyage
               </li>
               <li>
                 <a href="/profile">My Profile</a>

@@ -37,7 +37,6 @@ export default async function Home() {
                 {/*<input className="bg-transparent text-white max-w-fit focus:outline-none" id="end" type="date" />*/}
                 <input
                   className="bg-transparent text-white placeholder:text-white focus:outline-none w-fit max-w-16 md:max-w-24"
-                  id="budget"
                   placeholder="Budget"
                 />
                 <button className="bg-white text-green rounded-2xl w-fit px-6 py-1 hover:border max-h-8 max-w-24">
