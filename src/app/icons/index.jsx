@@ -19,3 +19,4 @@ export { default as Line } from './Line';
 export { default as CloseIcon } from './CloseIcon';
 export { default as MobileMenuIcon } from './MobileMenuIcon';
 export { default as Money } from './Money';
+export { default as BackArrow } from './BackArrow';

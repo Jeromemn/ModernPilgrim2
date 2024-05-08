@@ -1,52 +1,59 @@
 import mongoose from 'mongoose';
-// import { enumToString } from "mongodb/src/utils";
+import tripTipsSchema from './tripTipsSchema';
+import tripImageSchema from './tripImageSchema';
 
 const tripSchema = new mongoose.Schema({
   Id: {
-    type: String,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    // required: true,
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    // required: true,
     ref: 'User',
   },
   title: {
     type: String,
-    required: true,
+    // required: true,
+    // unique: false,
   },
   location: {
     // type: { type: String, enum: ['Coordinates', 'PlaceName'], required: true },
     type: String,
-    required: true,
+    // required: true,
   },
-  date: {
-    type: Date,
+  startDate: {
+    type: String,
+    // required: true,
+  },
+  endDate: {
+    type: String,
+    // required: true,
+  },
+  month: {
+    monthName: {
+      type: String,
+      // required: true,
+    },
+    year: {
+      type: Number,
+      // required: true,
+    },
     // required: true,
   },
   description: {
     type: String,
-    required: true,
+    // required: true,
   },
-  TripBudget: {
-    type: Number,
-  },
-  activities: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'tripActivitiesSchema',
-    },
-  ],
-  typeOfTrip: {
+  tripBudget: {
     type: String,
   },
-  tripStatus: { type: String, enum: ['Upcoming', 'Ongoing', 'Past'], required: true },
-  tips: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'tripTipsSchema',
-    },
-  ],
+  activities: [String],
+  typeOfTrip: {
+    type: [String],
+  },
+  tripStatus: { type: String, enum: ['Upcoming', 'Ongoing', 'Past', ''] },
+  tips: [tripTipsSchema],
   datePosted: {
     type: Date,
     default: Date.now,
@@ -55,12 +62,7 @@ const tripSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  image: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'tripImageSchema',
-    },
-  ],
+  tripImages: [tripImageSchema],
 });
 
 export default mongoose.models.Trip || mongoose.model('Trip', tripSchema);

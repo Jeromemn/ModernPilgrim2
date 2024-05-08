@@ -1,4 +1,4 @@
-const RightChevron = (props) => {
+const RightChevron = ({ props, color }) => {
   return (
     <svg
       {...props}
@@ -7,7 +7,7 @@ const RightChevron = (props) => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

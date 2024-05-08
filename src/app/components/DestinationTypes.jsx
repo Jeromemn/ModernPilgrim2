@@ -78,7 +78,7 @@ const DestinationTypes = () => {
         <ul className="lg:flex lg:justify-between grid grid-rows-3 grid-flow-col gap-y-2">
           {destinationsData.map((destination) => (
             <Link href={`/destinations/${destination.name}`} key={destination.id}>
-              <li className="flex flex-col items-center" key={destination.id}>
+              <li className="flex flex-col items-center hover:invert hover:brightness-0" key={destination.id}>
                 <Image src={destination.icon} alt={destination.name} height={35} width={35} />
                 <p className="text-white opacity-40">{destination.name}</p>
               </li>

@@ -12,6 +12,12 @@
   .btn {
     @apply px-4 py-2 rounded-md bg-light-green text-white;
   }
+  .FormBtn {
+    @apply px-4 py-1 rounded-md bg-black/50 text-light-brown border w-16 text-lg;
+  }
+  .yesNoBtn {
+    @apply px-4 py-1 rounded-md bg-black/50 text-light-brown border w-16 text-lg;
+  }
   .loginBtn {
     @apply px-4 py-2 rounded-md bg-green text-light-brown;
   }
@@ -31,47 +37,130 @@
     @apply text-3xl font-bold;
   }
   .tip-container {
-    @apply  flex ;
+    @apply flex;
   }
   .heroImage {
-    @apply bg-black ;
+    @apply bg-black;
   }
   .heroContent {
-    @apply flex flex-col z-20  ;
+    @apply flex flex-col z-20;
   }
+  .stepHeader {
+    @apply text-3xl font-bold;
+  }
+  .stepContainer {
+    @apply grid grid-cols-2 w-full h-full bg-light-green;
+  }
+  .mobileStepContainer {
+    @apply grid grid-cols-1 w-full h-full bg-light-green;
+  }
+  .stepContent {
+    @apply flex flex-col gap-4 justify-start;
+  }
+  .mobileStepContent {
+    @apply flex flex-col gap-4 justify-start;
+  }
+  .stepContentWrapper {
+    @apply flex flex-col bg-light-green w-full h-full justify-center items-center;
+  }
+  .mobileStepContentWrapper {
+    @apply flex flex-col bg-light-green w-full h-full items-center;
+  }
+  .stepImage {
+    @apply lg:w-full lg:h-full lg:relative lg:flex lg:flex-col hidden;
+  }
+  .backBtn {
+    @apply py-2 w-fit;
+  }
+  .destinationGrid {
+    @apply grid grid-flow-col grid-rows-3 gap-3;
+  }
+  .imagesSlide {
+    @apply flex gap-2 justify-start overflow-x-scroll overscroll-auto snap-x touch-auto w-[354.16px];
+  }
+  .imagesContainer {
+    @apply flex gap-2 flex-wrap justify-center lg:overflow-hidden p-2 w-full;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    /*scrollbar-gutter: stable;*/
+    scrollbar-color: rgba(190, 190, 190, 0.43) transparent;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .mobileContainer {
   max-height: calc(100vh - 130px);
 }
 
-  .slick-slide > div {
-    min-width: 320px;
-    margin:0 10px;
-
-  }
-  .slick-slider {
-    mq(768px) {
+.slick-slide > div {
+  min-width: 320px;
+  margin: 0 10px;
+}
+.slick-slider {
+  mq(768px) {
     max-height: 224px;
   }
   mq(425px) {
     width: 224px;
     min-width: 224px;
-    margin:0 10px;
+    margin: 0 10px;
     max-height: 300px;
   }
-  }
+}
 
-  .slick-list {
-    mq(768px) {
-      max-height: 224px;
-    }
+.slick-list {
+  mq(768px) {
+    max-height: 224px;
   }
+}
 
+.slick-track {
+  max-height: fit-content;
+}
 
-  .slick-track {
-    max-height: fit-content;
+@keyframes drawBorder {
+  0% {
+    border-color: transparent;
+    border-left-color: #4caf50; /* Start color */
   }
+  25% {
+    border-bottom-color: #4caf50;
+  }
+  50% {
+    border-right-color: #4caf50;
+  }
+  75% {
+    border-top-color: #4caf50;
+  }
+  100% {
+    border-color: #4caf50; /* End color */
+  }
+}
+
+.border-animate {
+  animation: drawBorder 10s forwards;
+}
+
+.input-focus-animate input:focus {
+  animation: glowBorder 1.5s forwards;
+}
+
+@keyframes glowBorder {
+  0% {
+    box-shadow: 0 0 0px 0px #4caf50;
+  }
+  100% {
+    box-shadow: 0 0 8px 3px #4caf50;
+  }
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

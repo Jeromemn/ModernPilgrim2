@@ -2,11 +2,17 @@
 import { useState } from 'react';
 import Modal from '@/app/components/Modal';
 import { CloseIcon, MobileMenuIcon } from '@/app/icons';
+import FormModal from '@/app/components/AddTripPost/FormModal';
 const HomeHeader = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleSubmitModal = () => {
+    setIsSubmitModalOpen(!isSubmitModalOpen);
   };
 
   return (
@@ -17,8 +23,8 @@ const HomeHeader = () => {
           <li>
             <a href="/">Explore</a>
           </li>
-          <li>
-            <a href="#">Submit Voyage</a>
+          <li className="cursor-pointer" onClick={toggleSubmitModal}>
+            Submit Voyage
           </li>
           <li>
             <a href="/profile">My Profile</a>
@@ -30,7 +36,7 @@ const HomeHeader = () => {
         <button className="flex lg:hidden" onClick={toggleMenu}>
           <MobileMenuIcon />
         </button>
-        <Modal isOpen={isOpen} onClose={toggleMenu}>
+        <Modal isOpen={isMenuOpen} onClose={toggleMenu}>
           <div className="flex w-full justify-between items-center z-10 relative">
             <h1 className="text-white font-bold text-3xl">Modern Pilgrim</h1>
             <button onClick={toggleMenu}>
@@ -45,8 +51,8 @@ const HomeHeader = () => {
               <li>
                 <a href="/searchResults">Explore</a>
               </li>
-              <li>
-                <a href="#">Submit Voyage</a>
+              <li className="cursor-pointer" onClick={toggleSubmitModal}>
+                Submit Voyage
               </li>
               <li>
                 <a href="/profile">My Profile</a>
@@ -57,6 +63,7 @@ const HomeHeader = () => {
             </ul>
           </div>
         </Modal>
+        <FormModal isOpen={isSubmitModalOpen} onClose={toggleSubmitModal} />
       </div>
     </div>
   );

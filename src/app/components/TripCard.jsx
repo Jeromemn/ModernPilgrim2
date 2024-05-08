@@ -13,10 +13,10 @@ const TripCard = ({ location, imgSrc, tripId, canLike, cost }) => {
     <Link href={`/profile/${tripId}`} className="flex w-full z-10">
       <div className="trip w-full h-80 flex relative z-50">
         <Image src={imgSrc} alt={location} priority fill className="rounded-lg h-full w-full -z-20" />
-        <div className="w-full h-full flex overflow-hidden absolute bg-black rounded-lg z-40 opacity-15 "></div>
+        <div className="w-full h-full flex overflow-hidden absolute bg-black rounded-lg z-40 opacity-15"></div>
         <div className="flex w-full h-full z-50 p-3 flex-col">
           {canLike && (
-            <div className="w-full relative flex justify-end z-50 ">
+            <div className="w-full relative flex justify-end z-50">
               <button className="z-50 flex hover:bg-black" onClick={handleLike}>
                 <HeartIcon className="z-50" />
               </button>
