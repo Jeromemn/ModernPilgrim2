@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import HomeHeader from '@/app/components/HomeHeader';
 import TripCard from '@/app/components/TripCard';
@@ -17,6 +17,8 @@ const MockImageGallery = [
   { imgSrc: '/beachTrip.jpg', title: 'place 7', price: 700 },
   { imgSrc: '/beachTrip.jpg', title: 'place 8', price: 800 },
   { imgSrc: '/beachTrip.jpg', title: 'place 9', price: 900 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 10', price: 1000 },
+  { imgSrc: '/beachTrip.jpg', title: 'place 11', price: 1100 },
 ];
 
 const destinationsData = [
@@ -53,22 +55,44 @@ const SortBy = ['Price: Low to High', 'Price: High to Low', 'Most Popular', 'Mos
 
 const ResultsPage = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      if (isScrolled !== scrolled) {
+        setScrolled(!scrolled);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      // cleanup
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
   return (
     <div className="h-screen w-full">
-      <div className="w-full h-1/3 relative">
-        <Image src="/beachTrip.jpg" alt="Modern Pilgrims" fill priority className="object-cover bg-center" />
-        <div className="w-full h-full bg-dark-black absolute opacity-25"></div>
-        <HomeHeader />
-        <div className="w-full h-full lg:h-5/6 flex flex-col justify-end items-center lg:items-center absolute gap-3 px-4 pb-2">
+      <div className={`w-full h-1/4 sticky top-0 flex flex-col justify-end ${scrolled ? 'shrink-image' : 'no-shrink'}`}>
+        <div className={`h-full relative  z-0`}>
+          <Image src="/beachTrip.jpg" alt="Modern Pilgrims" fill priority className="object-cover object-center" />
+          {/*<Image src="/beachTrip.jpg" alt="Modern Pilgrims" fill priority className="object-cover bg-center" />*/}
+          <div className="w-full h-full bg-dark-black absolute opacity-25 z-0"></div>
+        </div>
+
+        <div className="flex flex-col items-center lg:items-center absolute self-center justify-self-end z-20 gap-3 px-4 pb-2">
           <h2 className="text-white text-4xl font-bold text-center">Search Results</h2>
           <p className="text-white text-2xl text-center"> Find stories, tips and ideas for your next trip to </p>
         </div>
+        <HomeHeader />
       </div>
-      <div className="mx-5 md:mx-10 lg:mx-12 2xl:mx-24 flex flex-col w-auto justify-center items-center gap-5 pt-5">
+      <div className="mx-5 md:mx-10 lg:mx-12 2xl:mx-24 flex flex-col w-auto justify-center items-center gap-5 pt-10">
         <div className="border border-green rounded-3xl px-3 py-2 flex items-center w-full md:w-1/2 justify-between">
           <input
             className="pl-1 w-80 focus:outline-none"
@@ -90,10 +114,10 @@ const ResultsPage = () => {
               Search
             </button>
             <Modal isOpen={isOpen} onClose={toggleMenu}>
-              <div className="flex w-full justify-between items-center z-10 relative">
+              <div className="flex w-full justify-between items-center z-20 relative">
                 <h1 className="text-white font-bold text-3xl">Modern Pilgrim</h1>
                 <button onClick={toggleMenu}>
-                  <CloseIcon color="#fff" />
+                  <CloseIcon color="#fff" size={25} />
                 </button>
               </div>
               <div className="flex flex-col h-full items-center relative pt-10">
@@ -107,7 +131,9 @@ const ResultsPage = () => {
             </Modal>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 w-full">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 w-full ${isOpen ? 'hidden' : ''}`}
+        >
           {MockImageGallery.map(({ imgSrc, title, price }, index) => (
             <TripCard key={index} location={title} imgSrc={imgSrc} tripId={index} canLike={true} cost={price} />
           ))}

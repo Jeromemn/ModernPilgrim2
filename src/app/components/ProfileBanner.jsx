@@ -5,7 +5,7 @@ import mockUserProfile from '@/app/mocks/mockUserProfile';
 const ProfileBanner = () => {
   const userHasProfilePic = false;
   return (
-    <div className="flex items-center pb-2.5 gap-4 w-full border-b border-brown">
+    <div className="flex items-center self-center pb-2.5 gap-4 w-full border-b border-brown bg-white pt-5 z-10">
       {!userHasProfilePic ? (
         <ProfileIcon />
       ) : (

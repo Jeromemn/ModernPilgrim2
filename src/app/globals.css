@@ -91,6 +91,42 @@
     scrollbar-color: rgba(190, 190, 190, 0.43) transparent;
   }
 }
+.shrink-image {
+  height: 16%; /* or width: 60%; depending on your needs */
+  transition: height 0.5s ease-in-out; /* or transition: width .5s ease-in-out; */
+}
+/*.shrink-image {*/
+/*  transform: scaleY(0.6);*/
+/*  transition: transform .5s ease-in-out;*/
+/*  transform-origin: top;*/
+/*}*/
+.no-shrink {
+  height: 25%; /* or width: 100%; */
+  transition: height 0.5s ease-in-out; /* or transition: width .5s ease-in-out; */
+}
+.hero-shrink {
+  height: 20%; /* or width: 100%; */
+  transition: height 1s ease-in-out; /* or transition: width .5s ease-in-out; */
+}
+.pageContent {
+  transition: height 0.5s ease-in-out;
+}
+.beforeScroll {
+  position: fixed;
+  top: 100vh;
+  transition: top 5s ease-in-out
+}
+
+.afterScroll {
+  position: relative;
+  top: 0;
+  transition: top 1s ease-in-out
+}
+
+.hero-no-shrink {
+  height: 100%; /* or width: 100%; */
+  transition: height 0.5s ease-in-out; /* or transition: width .5s ease-in-out; */
+}
 
 .no-scroll {
   overflow: hidden;
