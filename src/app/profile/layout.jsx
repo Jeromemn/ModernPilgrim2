@@ -1,14 +1,12 @@
-import Header from '@/app/components/Header';
+import HomeHeader from '@/app/components/HomeHeader';
 import ProfileBanner from '@/app/components/ProfileBanner';
 const ProfileLayout = ({ children }) => {
   return (
-    <div className="flex flex-col gap-4 h-screen w-screen">
-      <Header />
-      <div className="w-full flex justify-center">
-        <div className="flex flex-col gap-7 px-6 items-center w-10/12">
-          <ProfileBanner />
-          {children}
-        </div>
+    <div className="h-screen w-full flex flex-col justify-center items-center">
+      <HomeHeader background />
+      <div className="flex flex-col mt-20 mx-auto h-full overflow-hidden lg:gap-4 gap-8">
+        <ProfileBanner />
+        <div className="flex lg:justify-start justify-center lg:items-center overflow-scroll pb-10 ">{children}</div>
       </div>
     </div>
   );

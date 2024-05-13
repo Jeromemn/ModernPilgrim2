@@ -1,11 +1,14 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from '@/app/components/Modal';
-import { CloseIcon, MobileMenuIcon } from '@/app/icons';
+import { MobileMenuIcon } from '@/app/icons';
 import FormModal from '@/app/components/AddTripPost/FormModal';
-const HomeHeader = () => {
+import Image from 'next/image';
+import Link from 'next/link';
+const HomeHeader = ({ background }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,13 +18,30 @@ const HomeHeader = () => {
     setIsSubmitModalOpen(!isSubmitModalOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
+
   return (
-    <div className="flex flex-row w-full absolute lg:justify-center p-4 lg:p-6 top-0 z-50">
-      <div className="flex lg:w-5/6 w-full justify-between items-center">
-        <h1 className="text-white font-bold text-3xl">Modern Pilgrim</h1>
+    <div className={`flex flex-row w-full h-20 fixed lg:justify-center p-4 lg:p-6 top-0 `}>
+      {background && (
+        <Image src="/HeroPlaceHolder.jpg" alt="Modern Pilgrims" fill priority className="object-cover brightness-50 " />
+      )}
+      <div className="flex lg:w-5/6 w-full justify-between items-center z-30">
+        <Link href="/">
+          <h1 className="text-white font-bold text-3xl">Modern Pilgrim</h1>
+        </Link>
         <ul className="flex-row text-white font-bold gap-6 hidden lg:flex">
           <li>
-            <a href="/">Explore</a>
+            <a href="/searchResults">Explore</a>
           </li>
           <li className="cursor-pointer" onClick={toggleSubmitModal}>
             Submit Voyage
@@ -40,7 +60,7 @@ const HomeHeader = () => {
           <div className="flex w-full justify-between items-center z-10 relative">
             <h1 className="text-white font-bold text-3xl">Modern Pilgrim</h1>
             <button onClick={toggleMenu}>
-              <CloseIcon color="#fff" />
+              <MobileMenuIcon />
             </button>
           </div>
           <div className="flex justify-center h-full items-center relative pt-10">
