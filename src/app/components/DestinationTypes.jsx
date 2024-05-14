@@ -1,64 +1,53 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  IconicCities,
-  Beaches,
-  Camping,
-  Castles,
-  Deserts,
-  Tropical,
-  Mountains,
-  HouseBoats,
-  CountrySide,
-} from '@/app/icons/destinationsTypes';
 import { Line } from '@/app/icons';
 
 const destinationsData = [
   {
     id: 1,
     name: 'Mountains',
-    icon: Mountains,
+    icon: '/Mountains.jpg',
   },
   {
     id: 2,
     name: 'Beaches',
-    icon: Beaches,
+    icon: '/Beaches.jpg',
   },
   {
     id: 3,
     name: 'Iconic Cities',
-    icon: IconicCities,
+    icon: '/IconicCities.jpg',
   },
   {
     id: 4,
     name: 'Deserts',
-    icon: Deserts,
+    icon: '/Deserts.jpg',
   },
   {
     id: 5,
     name: 'House Boats',
-    icon: HouseBoats,
+    icon: '/HouseBoat.jpg',
   },
   {
     id: 6,
     name: 'CountrySide',
-    icon: CountrySide,
+    icon: '/CountrySide.jpg',
   },
   {
     id: 7,
     name: 'Camping',
-    icon: Camping,
+    icon: '/Camping.jpg',
   },
   {
     id: 8,
     name: 'Castles',
-    icon: Castles,
+    icon: '/Castles.jpg',
   },
   {
     id: 9,
     name: 'Tropical',
-    icon: Tropical,
+    icon: '/Tropical.jpg',
   },
   // {
   //   id: 10,

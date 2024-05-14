@@ -1,9 +1,0 @@
-export { default as IconicCities } from './IconicCities.svg';
-export { default as Beaches } from './Beaches.svg';
-export { default as Mountains } from './Mountains.svg';
-export { default as Deserts } from './Deserts.svg';
-export { default as HouseBoats } from './HouseBoats.svg';
-export { default as CountrySide } from './CountrySide.svg';
-export { default as Camping } from './Camping.svg';
-export { default as Castles } from './Castles.svg';
-export { default as Tropical } from './Tropical.svg';

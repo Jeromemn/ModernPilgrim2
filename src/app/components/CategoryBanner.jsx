@@ -4,18 +4,20 @@ import { LeftChevron, RightChevron } from '@/app/icons';
 import Slider from 'react-slick';
 // import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css';
-import TripCard from '@/app/components/TripCard';
+import TripCard from '@/app/components/Cards/TripCard';
 
 const MockImageGallery = [
-  { imgSrc: '/beachTrip.jpg', title: 'place 1', price: 100 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 2', price: 200 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 3', price: 300 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 4', price: 400 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 5', price: 500 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 6', price: 600 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 7', price: 700 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 8', price: 800 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 9', price: 900 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 1', price: 100 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 2', price: 200 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 3', price: 300 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 4', price: 400 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 5', price: 500 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 6', price: 600 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 7', price: 700 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 8', price: 800 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 9', price: 900 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 10', price: 1000 },
+  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 11', price: 1100 },
 ];
 
 // option for the carousel to be used in the category banner
@@ -83,13 +85,13 @@ const CategoryBanner = ({ category }) => {
               onClick={previous}
               className="flex items-center justify-center w-10 h-10 rounded-2xl bg-black bg-opacity-50 text-white"
             >
-              <LeftChevron />
+              <LeftChevron color="#fffdf2" />
             </button>
             <button
               onClick={next}
               className="flex items-center justify-center w-10 h-10 rounded-2xl bg-black bg-opacity-50 text-white"
             >
-              <RightChevron />
+              <RightChevron color="#fffdf2" />
             </button>
           </div>
         </div>
@@ -99,8 +101,8 @@ const CategoryBanner = ({ category }) => {
           }}
           {...settings}
         >
-          {MockImageGallery.map((image, index) => (
-            <TripCard imgSrc={image.imgSrc} key={index} location={image.title} canLike />
+          {MockImageGallery.map(({ imgSrc, title, price }, index) => (
+            <TripCard imgSrc={imgSrc} key={index} location={title} cost={price} tripId={index} />
           ))}
         </Slider>
       </div>
