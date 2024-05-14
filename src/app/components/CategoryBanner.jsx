@@ -7,17 +7,17 @@ import Slider from 'react-slick';
 import TripCard from '@/app/components/Cards/TripCard';
 
 const MockImageGallery = [
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 1', price: 100 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 2', price: 200 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 3', price: 300 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 4', price: 400 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 5', price: 500 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 6', price: 600 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 7', price: 700 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 8', price: 800 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 9', price: 900 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 10', price: 1000 },
-  { imgSrc: ['/beachTrip.jpg', '/heroPlaceHolder.jpg'], title: 'place 11', price: 1100 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 1', price: 100 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 2', price: 200 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 3', price: 300 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 4', price: 400 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 5', price: 500 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 6', price: 600 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 7', price: 700 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 8', price: 800 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 9', price: 900 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 10', price: 1000 },
+  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 11', price: 1100 },
 ];
 
 // option for the carousel to be used in the category banner
