@@ -22,7 +22,7 @@ const Hero = () => {
     };
   }, [scrolled, setScrolled]);
   return (
-    <div className={`hero w-full h-full fixed top-0 z-100 ${scrolled ? 'hero-shrink' : ''} `}>
+    <div className={`hero w-full h-full fixed top-0 z-50 ${scrolled ? 'hero-shrink' : ''} `}>
       <div className="h-full relative">
         <Image src="/HeroPlaceHolder.jpg" alt="Modern Pilgrims" fill priority className="object-cover bg-center" />
         <div
@@ -31,7 +31,7 @@ const Hero = () => {
         ></div>
       </div>
       <div className="flex flex-col w-full h-full justify-center items-center bg-transparent top-0 absolute">
-        <div className="bg-opacity-20 flex z-10 bg-white backdrop-blur rounded-xl">
+        <div className="bg-opacity-20 flex bg-white backdrop-blur rounded-xl">
           <div className="px-4 flex bg-transparent py-2 w-auto gap-3 items-center">
             <SearchIcon color="#fff" />
             <input

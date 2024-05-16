@@ -88,3 +88,14 @@ const SingleTrip = ({ params }) => {
 };
 
 export default SingleTrip;
+
+// // {
+//   /*<div className="h-10 w-40 grid grid-cols-4 gap-1">*/
+// // }
+// {/*  {imgSrc.map((_, index) => (*/}
+// {/*    <div key={index} className="w-full h-full relative rounded-lg" onMouseEnter={() => setCurrentImage(index)} >*/}
+// {/*      <Image src={imgSrc[index]} alt={location} fill className="rounded-lg h-full w-full" />*/}
+// {/*    </div>*/}
+// {/*  ))}*/}
+// {/*</div>*/}
+//

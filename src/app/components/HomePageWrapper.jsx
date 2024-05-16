@@ -5,6 +5,7 @@ import CardSlider from '@/app/components/CardSlider';
 import DestinationTypes from '@/app/components/DestinationTypes';
 import DestinationActivities from '@/app/components/DestinationActivities';
 import Hero from '@/app/components/Hero';
+import CategoryBanner from '@/app/components/CategoryBanner';
 
 const HomePageWrapper = () => {
   const { scrolled } = useContext(ScrollContext);
@@ -13,13 +14,13 @@ const HomePageWrapper = () => {
     window.scrollTo(0, 0);
   }, []);
   const pageContentClasses = useMemo(() => {
-    let classes = 'flex flex-col h-screen justify-end -z-10 transition-all duration-500 ease-in-out';
+    let classes = 'flex flex-col h-screen justify-end transition-all duration-500 ease-in-out';
     classes += scrolled ? ' afterScroll' : ' beforeScroll';
     return classes;
   }, [scrolled]);
 
   return (
-    <div>
+    <div className="">
       <Hero ref={heroRef} />
       <div className={pageContentClasses}>
         <div className="h-3/4">
@@ -27,6 +28,7 @@ const HomePageWrapper = () => {
           <DestinationTypes />
           <CardSlider sliderTitle="Best Deals" sliderDescription="Most cost effective trips" />
           <DestinationActivities />
+          <CategoryBanner category="Popular Destinations" />
         </div>
       </div>
     </div>

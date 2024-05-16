@@ -2,23 +2,87 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import HomeHeader from '@/app/components/HomeHeader';
-import TripCard from '@/app/components/TripCard';
+import TripCard from '@/app/components/Cards/TripCard';
 import { SearchIcon, CloseIcon } from '@/app/icons';
 import SingleDropDown from '@/app/components/SingleDropDown';
 import Modal from '@/app/components/Modal';
 
 const MockImageGallery = [
-  { imgSrc: '/beachTrip.jpg', title: 'place 1', price: 100 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 2', price: 200 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 3', price: 300 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 4', price: 400 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 5', price: 500 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 6', price: 600 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 7', price: 700 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 8', price: 800 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 9', price: 900 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 10', price: 1000 },
-  { imgSrc: '/beachTrip.jpg', title: 'place 11', price: 1100 },
+  {
+    imgSrc: [
+      '/beachTrip.jpg',
+      '/HeroPlaceHolder.jpg',
+      '/beachTrip.jpg',
+      '/HeroPlaceHolder.jpg',
+      '/beachTrip.jpg',
+      '/HeroPlaceHolder.jpg',
+    ],
+    title: 'place 1',
+    price: 100,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+    tripType: 'Beaches',
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg'],
+    title: 'place 2',
+    price: 200,
+    tripType: 'Mountains',
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 3',
+    price: 300,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+    tripType: 'Tropical',
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 4',
+    price: 400,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 5',
+    price: 500,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 6',
+    price: 600,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 7',
+    price: 700,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 8',
+    price: 800,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 9',
+    price: 900,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 10',
+    price: 1000,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
+  {
+    imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg', '/beachTrip.jpg', '/HeroPlaceHolder.jpg'],
+    title: 'place 11',
+    price: 1100,
+    activities: ['Hiking', 'Scuba Diving', 'Golfing'],
+  },
 ];
 
 const destinationsData = [
@@ -79,7 +143,9 @@ const ResultsPage = () => {
 
   return (
     <div className="h-screen w-full">
-      <div className={`w-full h-1/4 sticky top-0 flex flex-col justify-end ${scrolled ? 'shrink-image' : 'no-shrink'}`}>
+      <div
+        className={`w-full h-1/4 sticky top-0 flex flex-col justify-end z-50 ${scrolled ? 'shrink-image' : 'no-shrink'}`}
+      >
         <div className={`h-full relative  z-0`}>
           <Image src="/beachTrip.jpg" alt="Modern Pilgrims" fill priority className="object-cover object-center" />
           {/*<Image src="/beachTrip.jpg" alt="Modern Pilgrims" fill priority className="object-cover bg-center" />*/}
@@ -134,8 +200,16 @@ const ResultsPage = () => {
         <div
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 w-full ${isOpen ? 'hidden' : ''}`}
         >
-          {MockImageGallery.map(({ imgSrc, title, price }, index) => (
-            <TripCard key={index} location={title} imgSrc={imgSrc} tripId={index} canLike={true} cost={price} />
+          {MockImageGallery.map(({ imgSrc, title, price, tripType }, index) => (
+            <TripCard
+              key={index}
+              location={title}
+              imgSrc={imgSrc}
+              tripId={index}
+              canLike={true}
+              cost={price}
+              tripType={tripType}
+            />
           ))}
         </div>
       </div>

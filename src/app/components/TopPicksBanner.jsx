@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import mockUserProfile from '@/app/mocks/mockUserProfile';
-import TripCard from '@/app/components/TripCard';
+import TripCard from '@/app/components/Cards/TripCard';
 
 const TopPicksBanner = () => {
   const { trips } = mockUserProfile;
