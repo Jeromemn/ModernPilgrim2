@@ -31,7 +31,7 @@ const HomeHeader = ({ background }) => {
   }, [scrolled]);
 
   return (
-    <div className={`flex flex-row w-full h-20 fixed lg:justify-center p-4 lg:p-6 top-0 `}>
+    <div className={`flex flex-row w-full lg:h-20 fixed lg:justify-center p-4 lg:p-6 top-0 `}>
       {background && (
         <Image src="/HeroPlaceHolder.jpg" alt="Modern Pilgrims" fill priority className="object-cover brightness-50 " />
       )}

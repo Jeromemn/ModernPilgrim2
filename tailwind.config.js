@@ -13,6 +13,7 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      '3xl': '2100px',
     },
     colors: {
       transparent: 'transparent',
@@ -23,6 +24,7 @@ module.exports = {
       brown: '#bc6c25',
       black: '#212529',
       'dark-black': '#000',
+      'soft-white': 'rgb(239,239,239)',
       white: '#fff',
       grey: 'rgba(33,37,41,0.47)',
       'light-brown-faded': 'rgba(221,161,94,0.75)',
