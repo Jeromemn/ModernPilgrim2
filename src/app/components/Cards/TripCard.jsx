@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -79,14 +80,20 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType }) => {
   const tripTypeData = destinationsData.find((destination) => destination.name === tripType);
 
   return (
-    <Link href={`/profile/${tripId}`} className="flex w-full">
+    <Link href={`/profile/${tripId}`} className="flex w-full -z-50">
       <div
-        className="h-96 w-full flex flex-col gap-2"
+        className="h-96 w-full flex flex-col gap-2 -z-50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="trip w-full h-72 flex relative">
-          <Image src={imgSrc[currentImage]} alt={location} priority fill className="rounded-lg h-full w-full -z-20" />
+        <div className="trip w-full h-72 flex relative ">
+          <Image
+            src={imgSrc[currentImage].tripImage}
+            alt={location}
+            priority
+            fill
+            className="rounded-lg h-full w-full -z-20"
+          />
           <div className="w-full h-full flex overflow-hidden absolute bg-black rounded-lg opacity-15"></div>
           <div className="flex h-full w-full flex-col p-2">
             <button className="flex absolute hover:bg-black self-end top-2 right-2" onClick={handleLike}>
@@ -113,7 +120,7 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType }) => {
         <div className="flex flex-col w-full justify-between gap-1">
           <div className="flex justify-between items-center">
             <div className="flex gap-x-4">
-              <h3 className="text-black text-xl h-fit font-bold">{location}</h3>
+              <h3 className="text-black text-lg h-fit font-semibold">{location}</h3>
               {tripTypeData ? (
                 <Image
                   src={tripTypeData.icon}
@@ -129,7 +136,7 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType }) => {
             <div className="flex justify-center items-center gap-1 ">
               <HeartIcon size={25} outlineColor="black" />
               <p>{likes}</p>
-              <p className="text-black text-xl h-fit">100</p>
+              {/*<p className="text-black text-xl h-fit">100</p>*/}
             </div>
           </div>
           <div>

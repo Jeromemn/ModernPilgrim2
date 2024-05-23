@@ -95,6 +95,10 @@
   height: 16%; /* or width: 60%; depending on your needs */
   transition: height 0.5s ease-in-out; /* or transition: width .5s ease-in-out; */
 }
+
+.cover-all {
+  z-index: 1000;
+}
 /*.shrink-image {*/
 /*  transform: scaleY(0.6);*/
 /*  transition: transform .5s ease-in-out;*/
@@ -114,13 +118,13 @@
 .beforeScroll {
   position: fixed;
   top: 100vh;
-  transition: top 5s ease-in-out
+  transition: top 5s ease-in-out;
 }
 
 .afterScroll {
   position: relative;
   top: 0;
-  transition: top 1s ease-in-out
+  transition: top 1s ease-in-out;
 }
 
 .hero-no-shrink {
