@@ -12,9 +12,7 @@ const ProfileBanner = () => {
         <div className="flex flex-row lg:gap-6 gap-4 items-center justify-center">
           <div className="self-start">
             {!userHasProfilePic ? (
-              <div
-                className="rounded-full border-4 border-white w-20 h-20 lg:w-32 lg:h-32 flex justify-center items-center overflow-hidden place-items-center bg-[#EBFBFE] lg:self-start"
-              >
+              <div className="rounded-full border-4 border-white w-20 h-20 lg:w-32 lg:h-32 flex justify-center items-center overflow-hidden place-items-center bg-[#EBFBFE] lg:self-start">
                 <ProfileIcon />
               </div>
             ) : (
