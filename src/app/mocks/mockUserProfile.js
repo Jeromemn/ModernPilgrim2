@@ -1,6 +1,6 @@
 const mockUserProfile = {
   id: 1,
-  name: 'John Doe',
+  username: 'John Doe',
   email: 'mockUser@gmail.com',
   bio: 'Travel, Adventure, Nature, Photography',
   profileImage: '',
@@ -9,7 +9,8 @@ const mockUserProfile = {
     {
       id: '1',
       name: 'Trip to the beach',
-      description: 'A trip to the beach with my friends',
+      description:
+        'Spent a fantastic weekend at the beach with my friends. We enjoyed sunbathing, swimming in the crystal-clear waters, and various water activities. It was a refreshing break from the routine.',
       displayDate: 'August 1st - 3rd, 2020',
       startDate: '2020-08-01',
       endDate: '2020-08-03',
@@ -137,7 +138,8 @@ const mockUserProfile = {
     {
       id: '2',
       name: 'Trip to France',
-      description: 'A trip to France with my family',
+      description:
+        'Explored the wonders of France with my family. From the Eiffel Tower to the charming streets of Paris, every moment was magical. We immersed ourselves in French culture, food, and history.',
       displayDate: 'August 1st - 3rd, 2022',
       startDate: '2022-08-01',
       endDate: '2022-08-03',
@@ -251,7 +253,9 @@ const mockUserProfile = {
     {
       id: '3',
       name: 'Trip to the mountains',
-      description: 'A trip to the mountains with my family',
+      description:
+        'A rejuvenating trip to the mountains with my family. We enjoyed hiking, taking in the' +
+        ' breathtaking views, and experiencing the tranquility of nature. It was a perfect escape from the city.',
       displayDate: 'August 1st - 3rd, 2021',
       startDate: '2021-08-01',
       endDate: '2021-08-03',
@@ -351,7 +355,8 @@ const mockUserProfile = {
     {
       id: '4',
       name: 'Trip to Rome',
-      description: 'A trip to Rome with my family',
+      description:
+        'Visited the historic city of Rome with my family. We marveled at the ancient ruins, explored the Colosseum, and indulged in delicious Italian cuisine. Every corner of the city had a story to tell.',
       displayDate: 'December 1st - 3rd, 2023',
       startDate: '2023-12-01',
       endDate: '2023-12-03',
@@ -360,7 +365,7 @@ const mockUserProfile = {
       tripImages: [
         {
           id: '1',
-          tripImage: '/beachTrip.jpg',
+          tripImage: '/HeroPlaceHolder.jpg',
         },
         {
           id: '2',
@@ -368,6 +373,18 @@ const mockUserProfile = {
         },
         {
           id: '3',
+          tripImage: '/HeroPlaceHolder.jpg',
+        },
+        {
+          id: '4',
+          tripImage: '/beachTrip.jpg',
+        },
+        {
+          id: '5',
+          tripImage: '/boat2.jpg',
+        },
+        {
+          id: '6',
           tripImage: '/HeroPlaceHolder.jpg',
         },
       ],
@@ -405,7 +422,7 @@ const mockUserProfile = {
         {
           id: '6',
           title: 'Budgeting',
-          content: ['Food', 'Accommodations', 'Transportation', 'Activities'],
+          content: ['Food, ', 'Accommodations, ', 'Transportation, ', 'Activities '],
         },
         {
           id: '7',
@@ -436,7 +453,7 @@ const mockUserProfile = {
         },
         {
           id: '2',
-          name: 'Museum Visit',
+          name: 'Museums',
           description: 'Visited various museums in Rome',
           activityImage: '',
           hasActivityImage: false,
@@ -448,12 +465,63 @@ const mockUserProfile = {
           activityImage: '',
           hasActivityImage: false,
         },
+        {
+          id: '4',
+          name: 'Vatican Tour',
+          description: "Toured the Vatican City, including St. Peter's Basilica and the Sistine Chapel",
+          activityImage: '',
+          hasActivityImage: false,
+        },
+        {
+          id: '5',
+          name: 'Trevi Fountain',
+          description: 'Visited the iconic Trevi Fountain and made a wish',
+          activityImage: '',
+          hasActivityImage: false,
+        },
+        {
+          id: '6',
+          name: 'Piazza Navona',
+          description: 'Strolled through Piazza Navona and admired the fountains and street artists',
+          activityImage: '',
+          hasActivityImage: false,
+        },
+        {
+          id: '7',
+          name: 'Trastevere',
+          description:
+            'Explored the charming neighborhood of Trastevere, known for its vibrant nightlife and local eateries',
+          activityImage: '',
+          hasActivityImage: false,
+        },
+        {
+          id: '8',
+          name: 'Spanish Steps',
+          description: 'Climbed the Spanish Steps and enjoyed the view from the top',
+          activityImage: '',
+          hasActivityImage: false,
+        },
+        {
+          id: '9',
+          name: 'Roman Catacombs',
+          description: 'Visited the ancient Roman catacombs and learned about early Christian history',
+          activityImage: '',
+          hasActivityImage: false,
+        },
+        {
+          id: '10',
+          name: 'Galleria Borghese',
+          description: 'Explored the Galleria Borghese, a stunning art gallery in a historic villa',
+          activityImage: '',
+          hasActivityImage: false,
+        },
       ],
     },
     {
       id: '5',
       name: 'Trip to Sydney',
-      description: 'A trip to Sydney with my friends',
+      description:
+        'Had an exciting adventure in Sydney with my friends. We explored the vibrant city, relaxed on Bondi Beach, and visited the iconic Sydney Opera House. It was an unforgettable experience.',
       displayDate: 'July 1st - 3rd, 2024',
       startDate: '2024-07-01',
       endDate: '2024-07-03',
@@ -556,7 +624,8 @@ const mockUserProfile = {
     {
       id: '6',
       name: 'Trip to Tokyo',
-      description: 'A trip to Tokyo with my friends',
+      description:
+        'Experienced the bustling metropolis of Tokyo with my friends. We visited famous landmarks, enjoyed shopping in trendy districts, and savored the diverse Japanese cuisine. Tokyo is a city that never sleeps.',
       displayDate: 'April 1st - 3rd, 2025',
       startDate: '2025-04-01',
       endDate: '2025-04-03',
