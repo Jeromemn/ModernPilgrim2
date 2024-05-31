@@ -6,10 +6,12 @@ import DestinationTypes from '@/app/components/DestinationTypes';
 import DestinationActivities from '@/app/components/DestinationActivities';
 import Hero from '@/app/components/Hero';
 import CategoryBanner from '@/app/components/CategoryBanner';
+import Login from '@/app/components/loginSignup/Login';
+import SignupSignIn from '@/app/components/loginSignup/SignupSignIn';
 
 const HomePageWrapper = () => {
   const { scrolled } = useContext(ScrollContext);
-  const heroRef = useRef(null);
+  // const heroRef = useRef(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -21,14 +23,16 @@ const HomePageWrapper = () => {
 
   return (
     <div className="">
-      <Hero ref={heroRef} />
+      <Hero />
       <div className={pageContentClasses}>
         <div className="h-3/4">
-          <CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />
+          {/*<Login />*/}
+          <SignupSignIn />
+          {/*<CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />*/}
           <DestinationTypes />
-          <CardSlider sliderTitle="Best Deals" sliderDescription="Most cost effective trips" />
+          {/*<CardSlider sliderTitle="Best Deals" sliderDescription="Most cost effective trips" />*/}
           <DestinationActivities />
-          <CategoryBanner category="Popular Destinations" />
+          {/*<CategoryBanner category="Popular Destinations" />*/}
         </div>
       </div>
     </div>

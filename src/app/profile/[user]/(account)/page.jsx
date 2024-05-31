@@ -4,8 +4,14 @@ import TripCard from '@/app/components/Cards/TripCard';
 import HomeHeader from '@/app/components/HomeHeader';
 import ProfileBanner from '@/app/components/ProfileBanner';
 import React from 'react';
+// import { useSession } from 'next-auth/react';
 
 const ProfilePage = () => {
+  // const [session, loading] = useSession();
+  // if (loading) {
+  //   return <div> Loading...</div>;
+  // }
+  // const userProfile = session?.user;
   return (
     <div className="h-screen w-full flex flex-col justify-start relative bg-soft-white">
       <div className="fixed top-0 w-full lg:h-72 h-64 md:h-60 bg-soft-white z-10">

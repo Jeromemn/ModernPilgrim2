@@ -5,6 +5,8 @@ import { MobileMenuIcon } from '@/app/icons';
 import FormModal from '@/app/components/AddTripPost/FormModal';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SignIn } from '@/app/components/SignInButton';
+import Logout from '@/app/components/loginSignup/Logout';
 const HomeHeader = ({ background }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
@@ -47,10 +49,12 @@ const HomeHeader = ({ background }) => {
             Submit Voyage
           </li>
           <li>
-            <a href="/profile">My Profile</a>
+            <a href="/profile/user/">My Profile</a>
           </li>
           <li>
-            <a href="/profile">Sign Up</a>
+            {/*<a href="/profile">Sign Up</a>*/}
+            <SignIn />
+            <Logout />
           </li>
         </ul>
         <button className="flex lg:hidden" onClick={toggleMenu}>
