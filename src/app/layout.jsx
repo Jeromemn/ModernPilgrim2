@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import dotenv from 'dotenv';
-import { useSession, SessionProvider} from "next-auth/react";
+import { SessionProvider } from 'next-auth/react';
 
 dotenv.config();
 
@@ -13,7 +13,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children, session }) {
-  // const session = useSession();
   return (
     <html lang="en">
       <body className={`${inter.className} bg-soft-white`}>

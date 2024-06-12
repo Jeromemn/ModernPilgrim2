@@ -1,10 +1,10 @@
 import { doSocialLogin } from '@/actions/signInAction';
-import { useState } from 'react';
+// import { useState } from 'react';
 const Login = () => {
-  const [signUp, setSignUp] = useState(false);
-  const handleSignUp = () => {
-    setSignUp(true);
-  };
+  // const [signUp, setSignUp] = useState(false);
+  // const handleSignUp = () => {
+  //   setSignUp(true);
+  // };
 
   return (
     <div className="w-1/2">

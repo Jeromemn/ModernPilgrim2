@@ -7,6 +7,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SignIn } from '@/app/components/SignInButton';
 import Logout from '@/app/components/loginSignup/Logout';
+import { useSession } from 'next-auth/react';
+
 const HomeHeader = ({ background }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
@@ -32,6 +34,9 @@ const HomeHeader = ({ background }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
+  const { data: session } = useSession();
+  const userId = session?.user.id;
+
   return (
     <div className={`flex flex-row w-full lg:h-20 fixed lg:justify-center p-4 lg:p-6 top-0 `}>
       {background && (
@@ -49,10 +54,9 @@ const HomeHeader = ({ background }) => {
             Submit Voyage
           </li>
           <li>
-            <a href="/profile/user/">My Profile</a>
+            <Link href={`/profile/${userId}/account`}>My Profile</Link>
           </li>
           <li>
-            {/*<a href="/profile">Sign Up</a>*/}
             <SignIn />
             <Logout />
           </li>
@@ -79,10 +83,11 @@ const HomeHeader = ({ background }) => {
                 Submit Voyage
               </li>
               <li>
-                <a href="/profile">My Profile</a>
+                <a href={`/profile/${userId}/account`}>My Profile</a>
               </li>
               <li>
-                <a href="/profile">Sign Up</a>
+                <SignIn />
+                <Logout />
               </li>
             </ul>
           </div>

@@ -29,12 +29,12 @@ export async function createUser(formData) {
   }
 }
 
-export async function socialSignUp(formData) {
-  await dbConnect();
-  const username = formData.get('name');
-  console.log('username:', formData.get('username'));
-  const email = formData.get('email');
-  console.log('email:', formData.get('email'));
-  const password = formData.get('password');
-  console.log('password:', formData.get('password'));
-}
+// export async function socialSignUp(formData) {
+//   await dbConnect();
+//   const username = formData.get('name');
+//   console.log('username:', formData.get('username'));
+//   const email = formData.get('email');
+//   console.log('email:', formData.get('email'));
+//   const password = formData.get('password');
+//   console.log('password:', formData.get('password'));
+// }

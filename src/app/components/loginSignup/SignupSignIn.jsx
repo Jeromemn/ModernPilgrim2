@@ -1,13 +1,10 @@
-import { doSocialLogin } from '@/actions/signInAction';
+// import { doSocialLogin } from '@/actions/signInAction';
 import { useState } from 'react';
 import Register from '@/app/components/loginSignup/Register';
 import Login from '@/app/components/loginSignup/Login';
 
 const SignupSignIn = () => {
   const [signUp, setSignUp] = useState(false);
-  // const handleSignUp = () => {
-  //   setSignUp(true);
-  // };
 
   const handleToggleSignup = () => {
     setSignUp(!signUp);

@@ -1,9 +1,7 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import User from '@/models/userSchema';
-// import { MongoDBAdapter } from '@auth/mongodb-adapter';
-// import dbConnect from '@/lib/db';
-// export const { auth, handlers, signIn, signOut } = NextAuth({ providers: [Google] });
+import dbConnect from '@/lib/db';
 
 export const {
   handlers: { GET, POST },
@@ -25,12 +23,13 @@ export const {
       },
       async profile(profile) {
         const { id, name, email, picture: image } = profile;
+        await dbConnect();
         let user;
         try {
           user = await User.findOne({ email });
           if (!user) {
             user = await new User({
-              googleId: id,
+              id,
               username: name,
               email,
               image,
@@ -42,33 +41,25 @@ export const {
           return null;
         }
         return {
-          // sub: user._id.toString(),
-          id: user._id.toString(),
+          id: user._id.toString(), // Use the MongoDB _id field
+          _id: user._id.toString(),
           name: user.username,
           email: user.email,
-          // image: user.image,
-          username: user.username,
+          image: user.image,
         };
       },
     }),
   ],
   callbacks: {
-    // async jwt(token, user, account) {
-    //   if (account) {
-    //     token.id = account.id;
-    //     token.username = account.username;
-    //     token.name = account.name;
-    //     token.email = account.email;
-    //   }
-    //   return token;
-    // },
-    async session(session, user) {
+    async jwt({ token, user }) {
       if (user) {
-        session.user = {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-        };
+        token.id = user._id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token && token.id) {
+        session.user.id = token.id;
       }
       return session;
     },
