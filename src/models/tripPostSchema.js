@@ -12,6 +12,10 @@ const tripSchema = new mongoose.Schema({
     // required: true,
     ref: 'User',
   },
+  userName: {
+    type: String,
+    // required: true,
+  },
   title: {
     type: String,
     // required: true,

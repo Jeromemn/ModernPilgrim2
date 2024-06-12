@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    // required: true,
   },
   profileImage: {
     type: String,
@@ -33,10 +33,16 @@ const userSchema = new mongoose.Schema({
       ref: 'Trip',
     },
   ],
+  likedTrips: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Trip',
+    },
+  ],
+  likes: {
+    type: Number,
+    default: 0,
+  },
 });
 
-const User = mongoose.model('User', userSchema);
-
-// export default mongoose.models.User || mongoose.model('User', UserSchema);
-
-export default User;
+export default mongoose.models.User || mongoose.model('User', userSchema);

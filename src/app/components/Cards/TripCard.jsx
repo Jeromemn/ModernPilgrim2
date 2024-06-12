@@ -57,7 +57,7 @@ const destinationsData = [
   // },
 ];
 
-const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType }) => {
+const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType, month }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const handleLike = (e) => {
@@ -80,7 +80,7 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType }) => {
   const tripTypeData = destinationsData.find((destination) => destination.name === tripType);
 
   return (
-    <Link href={`/profile/${tripId}`} className="flex w-full -z-50">
+    <Link href={`/profile/user/destination/${tripId}`} className="flex w-full -z-50 min-w-[304px]">
       <div
         className="h-96 w-full flex flex-col gap-2 -z-50"
         onMouseEnter={() => setIsHovered(true)}
@@ -88,7 +88,10 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType }) => {
       >
         <div className="trip w-full h-72 flex relative ">
           <Image
-            src={imgSrc[currentImage].tripImage}
+            src={
+              Array.isArray(imgSrc) && imgSrc.length > 0 ? imgSrc[currentImage].tripImageUrl : '/HeroPlaceHolder.jpg'
+            }
+            // src={imgSrc[currentImage].tripImage}
             alt={location}
             priority
             fill
@@ -140,7 +143,10 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType }) => {
             </div>
           </div>
           <div>
-            <p> June 1st - June 12th</p>
+            {/*<p> June 1st - June 12th</p>*/}
+            <p>
+              {month?.monthName}, {month?.year}
+            </p>
           </div>
           <div className="flex ">
             <p className="text-black text-xl h-fit font-bold">${cost}</p>
