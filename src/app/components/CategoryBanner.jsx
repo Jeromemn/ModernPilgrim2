@@ -1,28 +1,17 @@
 'use client';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import useTrips from '@/app/hooks/useTrips';
 import { LeftChevron, RightChevron } from '@/app/icons';
 import Slider from 'react-slick';
 // import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css';
 import TripCard from '@/app/components/Cards/TripCard';
 
-const MockImageGallery = [
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 1', price: 100 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 2', price: 200 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 3', price: 300 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 4', price: 400 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 5', price: 500 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 6', price: 600 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 7', price: 700 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 8', price: 800 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 9', price: 900 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 10', price: 1000 },
-  { imgSrc: ['/beachTrip.jpg', '/HeroPlaceHolder.jpg'], title: 'place 11', price: 1100 },
-];
-
 // option for the carousel to be used in the category banner
 
 const CategoryBanner = ({ category }) => {
+  const { trips, isLoading, isError } = useTrips();
+  console.log(trips, isLoading, isError);
   let sliderRef = useRef(null);
 
   const settings = {
@@ -101,9 +90,24 @@ const CategoryBanner = ({ category }) => {
           }}
           {...settings}
         >
-          {MockImageGallery.map(({ imgSrc, title, price }, index) => (
-            <TripCard imgSrc={imgSrc} key={index} location={title} cost={price} tripId={index} />
-          ))}
+          {trips?.map(
+            ({ hasTripImage, _id, tripBudget, title, displayDate, location, tripImages, tripType, month, likes }) => (
+              <TripCard
+                key={_id}
+                hasTripImage={hasTripImage}
+                tripId={_id}
+                tripBudget={tripBudget}
+                name={title}
+                displayDate={displayDate}
+                location={location}
+                imgSrc={tripImages}
+                cost={tripBudget}
+                tripType={tripType}
+                likes={likes}
+                month={month}
+              />
+            ),
+          )}
         </Slider>
       </div>
     </div>

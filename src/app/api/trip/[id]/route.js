@@ -15,7 +15,7 @@ export async function GET(request, { params }) {
     if (!trip) {
       return NextResponse.json({ error: 'trip not found' }, { status: 404 });
     }
-    return Response.json({ trip });
+    return Response.json(trip);
   } catch (error) {
     console.error('Error fetching trips:', error);
     return NextResponse.json({ error: 'Internal Server Error in route' }, { status: 500 });
