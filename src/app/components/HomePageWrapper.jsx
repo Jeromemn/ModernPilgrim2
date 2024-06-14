@@ -2,8 +2,8 @@
 import { useContext, useEffect, useMemo } from 'react';
 import { ScrollContext } from '@/app/ScrollContext';
 import CardSlider from '@/app/components/CardSlider';
-import DestinationTypes from '@/app/components/DestinationTypes';
-import DestinationActivities from '@/app/components/DestinationActivities';
+// import DestinationTypes from '@/app/components/DestinationTypes';
+// import DestinationActivities from '@/app/components/DestinationActivities';
 import Hero from '@/app/components/Hero';
 import CategoryBanner from '@/app/components/CategoryBanner';
 // import Login from '@/app/components/loginSignup/Login';
@@ -27,9 +27,9 @@ const HomePageWrapper = () => {
       <div className={pageContentClasses}>
         <div className="h-3/4">
           <CardSlider sliderTitle="Popular Destinations" sliderDescription="Most popular destinations from users" />
-          <DestinationTypes />
+          {/*<DestinationTypes />*/}
           <CardSlider sliderTitle="Best Deals" sliderDescription="Most cost effective trips" />
-          <DestinationActivities />
+          {/*<DestinationActivities />*/}
           <CategoryBanner category="Popular Destinations" />
         </div>
       </div>

@@ -82,7 +82,7 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType, month }) =>
   return (
     <Link href={`/profile/user/destination/${tripId}`} className="flex w-full -z-50 min-w-[304px]">
       <div
-        className="h-96 w-full flex flex-col gap-2 -z-50"
+        className="h-96 w-full flex flex-col gap-2 z-50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -139,11 +139,9 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType, month }) =>
             <div className="flex justify-center items-center gap-1 ">
               <HeartIcon size={25} outlineColor="black" />
               <p>{likes}</p>
-              {/*<p className="text-black text-xl h-fit">100</p>*/}
             </div>
           </div>
           <div>
-            {/*<p> June 1st - June 12th</p>*/}
             <p>
               {month?.monthName}, {month?.year}
             </p>

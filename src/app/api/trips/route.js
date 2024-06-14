@@ -1,16 +1,11 @@
 import dbConnect from '@/lib/db';
 import Trip from '@/models/tripPostSchema';
 import { NextResponse } from 'next/server';
-import { ObjectId } from 'mongodb';
-
 // get trips from user id
-export async function GET(request, { params }) {
-  const { id } = params;
-
+export async function GET() {
   try {
     await dbConnect();
-    const idObject = new ObjectId(id);
-    const trips = await Trip.find({ userId: idObject });
+    const trips = await Trip.find();
 
     if (!trips) {
       return NextResponse.json({ error: 'trips not found' }, { status: 404 });

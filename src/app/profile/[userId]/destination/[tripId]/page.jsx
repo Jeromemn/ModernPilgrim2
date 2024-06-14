@@ -1,9 +1,9 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-// import mockUserProfile from '@/app/mocks/mockUserProfile';
 import { DestinationIcon, HeartIcon } from '@/app/icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import useTrip from '@/app/hooks/useTrip';
 import HomeHeader from '@/app/components/HomeHeader';
 import {
   BikingIcon,
@@ -42,30 +42,21 @@ const activityIcons = {
   'Food Tasting': <WineIcon />,
 };
 
-const getTrip = async (tripId) => {
-  const res = await fetch(`http://localhost:3000/api/trip/${tripId}`);
-  return await res.json();
-};
-
 const SingleTrip = ({ params: { tripId } }) => {
-  const [tripData, setTripData] = useState(null);
+  const { trip, isLoading, isError } = useTrip(tripId);
+  console.log(trip, isLoading, isError);
+
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getTrip(tripId);
-      setTripData(data);
-      if (data.trip) {
-        setPreviousImage(data.trip.tripImages[0]);
-        setCurrentImage(data.trip.tripImages[0]);
-      }
-    };
+    if (trip) {
+      setPreviousImage(trip.tripImages[0].tripImageUrl);
+      setCurrentImage(trip.tripImages[0].tripImageUrl);
+    }
+  }, [trip]);
 
-    fetchData();
-  }, [tripId]);
-
-  const [previousImage, setPreviousImage] = useState(tripData?.trip.tripImages[0]);
+  const [previousImage, setPreviousImage] = useState(trip?.tripImages[0].tripImageUrl);
   const [opacity, setOpacity] = useState(1);
   const [isImageSelected, setIsImageSelected] = useState(false);
-  const [currentImage, setCurrentImage] = useState(tripData?.trip.tripImages[0]);
+  const [currentImage, setCurrentImage] = useState(trip?.tripImages[0].tripImageUrl);
 
   useEffect(() => {
     if (isImageSelected) {
@@ -85,9 +76,9 @@ const SingleTrip = ({ params: { tripId } }) => {
   };
 
   let gridClass;
-  if (tripData?.activities?.length <= 3) {
+  if (trip?.activities?.length <= 3) {
     gridClass = 'grid-cols-1';
-  } else if (tripData?.activities?.length > 3 && tripData?.activities?.length <= 7) {
+  } else if (trip?.activities?.length > 3 && trip?.activities?.length <= 7) {
     gridClass = 'grid-cols-2';
   } else {
     gridClass = 'grid-cols-3';
@@ -110,13 +101,13 @@ const SingleTrip = ({ params: { tripId } }) => {
         <div className="flex flex-col items-center xl:max-w-screen-xl 2xl:max-w-screen-2xl md:mx-10 xl:mx-auto pt-8 gap-y-14 ">
           <div className="flex flex-col lg:flex-row xl:gap-16 gap-6 w-full h-full">
             <div className="grid grid-cols-1 w-full lg:w-1/2 h-full gap-2">
-              {tripData?.trip.tripImages.length > 0 && (
+              {trip?.tripImages.length > 0 && (
                 <div className="w-full h-60 md:h-72 lg:h-96 relative">
                   <Image
                     alt="Previous trip image"
                     className="rounded-lg absolute"
                     fill
-                    src={previousImage?.tripImageUrl}
+                    src={previousImage}
                     style={{
                       aspectRatio: '695/420',
                       objectFit: 'cover',
@@ -129,7 +120,7 @@ const SingleTrip = ({ params: { tripId } }) => {
                     alt="Trip image"
                     className="rounded-lg"
                     fill
-                    src={currentImage?.tripImageUrl}
+                    src={currentImage}
                     style={{
                       aspectRatio: '695/420',
                       objectFit: 'cover',
@@ -142,12 +133,12 @@ const SingleTrip = ({ params: { tripId } }) => {
               )}
 
               <div className="grid grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 gap-2 h-24">
-                {tripData?.trip.tripImages.map((tripImage, id) => (
+                {trip?.tripImages.map((tripImage, id) => (
                   <div
                     key={id}
                     className="w-full h-full rounded-lg relative"
                     onMouseEnter={() => {
-                      setCurrentImage(tripImage);
+                      setCurrentImage(tripImage.tripImageUrl);
                       setIsImageSelected(true);
                     }}
                   >
@@ -169,7 +160,7 @@ const SingleTrip = ({ params: { tripId } }) => {
               <div className="flex justify-between border-b border-black/50 lg:pb-3 pb-5">
                 <div className="flex gap-3 items-center">
                   <DestinationIcon />
-                  <h3 className="secondary-header text-black">{tripData?.trip.location}</h3>
+                  <h3 className="secondary-header text-black">{trip?.location}</h3>
                 </div>
                 <button className="flex self-end heart-icon-hover" onClick={handleLike}>
                   <HeartIcon size={32} outlineColor="#212529" />
@@ -181,30 +172,30 @@ const SingleTrip = ({ params: { tripId } }) => {
                 </div>
                 <div>
                   <div className="flex flex-col lg:flex-row lg:gap-3 lg:items-center">
-                    <h3 className="text-xl font-semibold">{tripData?.trip.title}</h3>
-                    <Link href={`/profile/${tripData?.trip.userId}/account`}>
-                      <p> Posted by {tripData?.trip.userName}</p>
+                    <h3 className="text-xl font-semibold">{trip?.title}</h3>
+                    <Link href={`/profile/${trip?.userId}/account`}>
+                      <p> Posted by {trip?.userName}</p>
                     </Link>
                   </div>
                   <h3>
-                    {tripData?.trip.month.monthName}, {tripData?.trip.month.year}
+                    {trip?.month.monthName}, {trip?.month.year}
                   </h3>
                   <div className="flex gap-3">
-                    <h3>Cost: ${tripData?.trip.tripBudget}</h3>
+                    <h3>Cost: ${trip?.tripBudget}</h3>
                     <div className="flex gap-2 items-center">
-                      <p>Likes: {tripData?.trip.likes}</p>
+                      <p>Likes: {trip?.likes}</p>
                       <HeartIcon size={20} outlineColor="black" />
                     </div>
                   </div>
                 </div>
               </div>
               <div className="border-b border-black/50 lg:py-3 py-5">
-                <p> {tripData?.trip.description}</p>
+                <p> {trip?.description}</p>
               </div>
               <div className="border-b border-black/50 lg:py-3 py-5 flex flex-col gap-2">
                 <h3 className="secondary-header">Activities</h3>
                 <ul className={`grid grid-cols-2 lg:${gridClass} gap-2`}>
-                  {tripData?.trip.activities.map((activity, description, id) => (
+                  {trip?.activities.map((activity, description, id) => (
                     <div className="flex items-center gap-1 h-8" key={`${activity}${id}`}>
                       <div className="">{activityIcons[activity]}</div>
                       <li className="">{activity}</li>
@@ -220,7 +211,7 @@ const SingleTrip = ({ params: { tripId } }) => {
           <div className="flex flex-col gap-8 items-center justify-center mx-auto md:mx-0 xl:max-w-3/4 w-11/12 md:w-full ">
             <h3 className="secondary-header text-light-green">Tips for this trip</h3>
             <div className="h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-              {tripData?.trip?.tips.map((tip, id) => (
+              {trip?.tips.map((tip, id) => (
                 <div key={`tips${id}`} className="min-h-28 rounded-xl bg-white p-3 shadow-xl">
                   <h3 className="font-bold text-center"> {tip.category} </h3>
                   <p className="text-center text-wrap w-full"> {tip.content}</p>
