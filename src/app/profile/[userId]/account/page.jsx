@@ -5,9 +5,12 @@ import TripCard from '@/app/components/Cards/TripCard';
 import HomeHeader from '@/app/components/HomeHeader';
 import ProfileBanner from '@/app/components/ProfileBanner';
 import Message from '@/app/components/PageMessages/Message';
+import { useSWRConfig } from 'swr';
 
 const ProfilePage = ({ params: { userId } }) => {
   const { trips, isLoading, isError } = useUserTrips(userId);
+  const config = useSWRConfig();
+  console.log(config);
   console.log(trips, isLoading, isError);
 
   return (

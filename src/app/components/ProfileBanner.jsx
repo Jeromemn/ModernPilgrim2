@@ -63,7 +63,7 @@ const ProfileBanner = ({ userId }) => {
             </div>
             <div className="w-fit gap-5 rounded bg-white py-1 shadow-xl px-4 hidden lg:flex">
               <div className="flex flex-col items-center">
-                <h3 className="font-semibold">{user?.trips.length}</h3>
+                <h3 className="font-semibold">{user?.trips?.length}</h3>
                 <p className="text-sm">Trips</p>
               </div>
               <div className="flex flex-col items-center">
