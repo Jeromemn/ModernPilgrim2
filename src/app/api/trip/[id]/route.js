@@ -42,3 +42,23 @@ export async function DELETE(request, { params }) {
     return NextResponse.json({ error: 'Internal Server Error in route' }, { status: 500 });
   }
 }
+
+export async function PUT(request, { params }) {
+  const { id } = params;
+  const res = await request.json();
+  try {
+    await dbConnect();
+    const idObject = new ObjectId(id);
+    const trip = await Trip.findById(idObject);
+
+    if (!trip) {
+      return NextResponse.json({ error: 'trip not found' }, { status: 404 });
+    }
+
+    const updatedTrip = await Trip.findByIdAndUpdate(idObject, res, { new: true });
+    return NextResponse.json(updatedTrip);
+  } catch (error) {
+    console.error('Error fetching trips:', error);
+    return NextResponse.json({ error: 'Internal Server Error in route' }, { status: 500 });
+  }
+}
