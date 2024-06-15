@@ -80,7 +80,7 @@ const TripCard = ({ location, imgSrc, tripId, cost, likes, tripType, month }) =>
   const tripTypeData = destinationsData.find((destination) => destination.name === tripType);
 
   return (
-    <Link href={`/profile/user/destination/${tripId}`} className="flex w-full -z-50 min-w-[304px]">
+    <Link href={`/profile/user/destination/${tripId}`} className="flex w-full h-96 -z-50 min-w-[304px]">
       <div
         className="h-96 w-full flex flex-col gap-2 z-50"
         onMouseEnter={() => setIsHovered(true)}
