@@ -32,26 +32,29 @@ const ProfilePage = ({ params: { userId } }) => {
       </div>
       <div className="flex w-full lg:h-full justify-center items-center lg:items-center pb-10 lg:mt-72 mt-64 z-0">
         {trips?.length === 0 && <Message message="Looks like you havent shared any trips" />}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6 scroll-py-5 h-full pb-4 -z-50">
-          {trips?.map(
-            ({ hasTripImage, _id, tripBudget, title, displayDate, location, tripImages, tripType, month, likes }) => (
-              <TripCard
-                key={_id}
-                hasTripImage={hasTripImage}
-                tripId={_id}
-                tripBudget={tripBudget}
-                name={title}
-                displayDate={displayDate}
-                location={location}
-                imgSrc={tripImages}
-                cost={tripBudget}
-                tripType={tripType}
-                likes={likes}
-                month={month}
-              />
-            ),
-          )}
-        </div>
+        {isLoading && <Message message="Loading trips..." />}
+        {!isLoading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6 scroll-py-5 h-full pb-4 -z-50">
+            {trips?.map(
+              ({ hasTripImage, _id, tripBudget, title, displayDate, location, tripImages, tripType, month, likes }) => (
+                <TripCard
+                  key={_id}
+                  hasTripImage={hasTripImage}
+                  tripId={_id}
+                  tripBudget={tripBudget}
+                  name={title}
+                  displayDate={displayDate}
+                  location={location}
+                  imgSrc={tripImages}
+                  cost={tripBudget}
+                  tripType={tripType}
+                  likes={likes}
+                  month={month}
+                />
+              ),
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

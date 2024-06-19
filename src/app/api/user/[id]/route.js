@@ -46,7 +46,6 @@ export async function PUT(request, { params }) {
   const { id } = params;
   const res = await request.json();
   const likedTripIds = res.likedTrips;
-  console.log('liked trips:', likedTripIds);
   try {
     await dbConnect();
     const idObject = new ObjectId(id);
@@ -55,9 +54,12 @@ export async function PUT(request, { params }) {
     if (!user) {
       return NextResponse.json({ error: 'user not found' }, { status: 404 });
     }
-    const likedTripObjectIds = likedTripIds.map((tripId) => new ObjectId(tripId));
-    const update = { ...res, likedTrips: likedTripObjectIds };
-    const updatedUser = await User.findByIdAndUpdate(idObject, update, { new: true });
+    if (likedTripIds) {
+      const likedTripObjectIds = likedTripIds.map((tripId) => new ObjectId(tripId));
+      res.likedTrips = likedTripObjectIds;
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(idObject, res, { new: true });
     return NextResponse.json(updatedUser);
   } catch (error) {
     console.error('Error fetching trips:', error);
