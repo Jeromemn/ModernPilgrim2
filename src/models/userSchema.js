@@ -16,7 +16,8 @@ const userSchema = new mongoose.Schema({
     // required: true,
   },
   profileImage: {
-    type: String,
+    imageUrl: String,
+    imageName: String,
     // required: true,
   },
   hasProfileImage: {
